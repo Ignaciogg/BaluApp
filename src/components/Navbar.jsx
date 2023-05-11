@@ -1,5 +1,11 @@
-import React from "react";
+/*import React from "react";
 import { View, StyleSheet, TouchableOpacity, Text, Button } from "react-native";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+
+import Perfil from "../views/Perfil";
+import Home from "../views/Home";
 
 const styles = StyleSheet.create({
   navbarContainer: {
@@ -22,23 +28,21 @@ const styles = StyleSheet.create({
   },
 });
 
-const Navbar = ({ navigation }) => {
-  const goToPerfil = () => {
-    navigation.navigate('Perfil');
-  };
+const Tab = createBottomTabNavigator();
+
+const Navbar = () => {
   return (
     <View style={styles.navbarContainer}>
-      <Button style={styles.navbarButton}>
-        <Text style={styles.navbarButtonText}>Home</Text>
-      </Button>
-      <Button style={styles.navbarButton}>
-        <Text style={styles.navbarButtonText}>Carrito</Text>
-      </Button>
-      <Button style={styles.navbarButton}>
-        <Text style={styles.navbarButtonText} onPress={goToPerfil}>Perfil</Text>
-      </Button>
+      <NavigationContainer>
+        <Tab.Navigator>
+          <Tab.Screen name="Home" component={Home} />
+          <Tab.Screen name="Carrito" component={Home} />
+          <Tab.Screen name="Perfil" component={Perfil} />
+        </Tab.Navigator>
+      </NavigationContainer>
     </View>
   );
 };
 
 export default Navbar;
+*/

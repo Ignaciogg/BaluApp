@@ -1,7 +1,13 @@
 import React from "react";
-import { Text, View, StyleSheet, Image, Button } from "react-native";
+import { Text, View, StyleSheet, Image, Button, ImageBackground } from "react-native";
 
 const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    resizeMode: "cover",
+    width: '100%',
+    height: '100%',
+  },
   strong: {
     color: "#fff",
     fontWeight: "bold",
@@ -55,78 +61,82 @@ const styles = StyleSheet.create({
 
 const Home = () => {
   return (
-    <View style={{ margin: 20 }}>
-      <Image
-        style={styles.imagecenter}
-        source={require("../../assets/balu.png")}
-      />
-      <Text style={styles.strong}>MOST POPULAR</Text>
-      <View style={styles.imagesContainer}>
+    <ImageBackground source={require("../../assets/bg.png")} style={styles.backgroundImage}>
+
+      <View style={{ margin: 20 }}>
         <Image
-          style={styles.image}
-          source={require("../../assets/bowl1.png")}
+          style={styles.imagecenter}
+          source={require("../../assets/balu.png")}
         />
-        <Image
-          style={styles.image}
-          source={require("../../assets/bowl2.png")}
-        />
-        <Image
-          style={styles.image}
-          source={require("../../assets/bowl3.png")}
-        />
-      </View>
-      <Text style={styles.strong2}>TODA LA CARTA</Text>
-      <View>
-        <View style={styles.itemTodaCarta}>
+        <Text style={styles.strong}>MOST POPULAR</Text>
+        <View style={styles.imagesContainer}>
           <Image
             style={styles.image}
             source={require("../../assets/bowl1.png")}
           />
-          <View style={styles.textContainer}>
-            <Text style={styles.text}>Summer Bowl</Text>
-            <Text style={styles.textprecio}>8,99€</Text>
-            <Button
-              title="Añadir"
-              color="#CB6CE6"
-              containerStyle={styles.btn}
-              onPress={() => {}}
-            />
-          </View>
-        </View>
-        <View style={styles.itemTodaCarta}>
           <Image
             style={styles.image}
-            source={require("../../assets/bowl1.png")}
+            source={require("../../assets/bowl2.png")}
           />
-          <View style={styles.textContainer}>
-            <Text style={styles.text}>Summer Bowl</Text>
-            <Text style={styles.textprecio}>8,99€</Text>
-            <Button
-              title="Añadir"
-              color="#CB6CE6"
-              containerStyle={styles.btn}
-              onPress={() => {}}
-            />
-          </View>
-        </View>
-        <View style={styles.itemTodaCarta}>
           <Image
             style={styles.image}
-            source={require("../../assets/bowl1.png")}
+            source={require("../../assets/bowl3.png")}
           />
-          <View style={styles.textContainer}>
-            <Text style={styles.text}>Summer Bowl</Text>
-            <Text style={styles.textprecio}>8,99€</Text>
-            <Button
-              title="Añadir"
-              color="#CB6CE6"
-              containerStyle={styles.btn}
-              onPress={() => {}}
+        </View>
+        <Text style={styles.strong2}>TODA LA CARTA</Text>
+        <View>
+          <View style={styles.itemTodaCarta}>
+            <Image
+              style={styles.image}
+              source={require("../../assets/bowl1.png")}
             />
+            <View style={styles.textContainer}>
+              <Text style={styles.text}>Summer Bowl</Text>
+              <Text style={styles.textprecio}>8,99€</Text>
+              <Button
+                title="Añadir"
+                color="#CB6CE6"
+                containerStyle={styles.btn}
+                onPress={() => {}}
+              />
+            </View>
+          </View>
+          <View style={styles.itemTodaCarta}>
+            <Image
+              style={styles.image}
+              source={require("../../assets/bowl1.png")}
+            />
+            <View style={styles.textContainer}>
+              <Text style={styles.text}>Summer Bowl</Text>
+              <Text style={styles.textprecio}>8,99€</Text>
+              <Button
+                title="Añadir"
+                color="#CB6CE6"
+                containerStyle={styles.btn}
+                onPress={() => {}}
+              />
+            </View>
+          </View>
+          <View style={styles.itemTodaCarta}>
+            <Image
+              style={styles.image}
+              source={require("../../assets/bowl1.png")}
+            />
+            <View style={styles.textContainer}>
+              <Text style={styles.text}>Summer Bowl</Text>
+              <Text style={styles.textprecio}>8,99€</Text>
+              <Button
+                title="Añadir"
+                color="#CB6CE6"
+                containerStyle={styles.btn}
+                onPress={() => {}}
+              />
+            </View>
           </View>
         </View>
-      </View>
-    </View>
+      </View> 
+
+    </ImageBackground>
   );
 };
 

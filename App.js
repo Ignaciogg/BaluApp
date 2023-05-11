@@ -1,29 +1,38 @@
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, ImageBackground } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 import Home from "./src/views/Home";
-import Navbar from "./src/components/Navbar";
 import Login from "./src/views/Login";
+import Perfil from "./src/views/Perfil";
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1, // Esto hace que el contenedor ocupe todo el espacio disponible
-  },
-  backgroundImage: {
-    flex: 1,
-    resizeMode: "cover", // Esto hace que la imagen ocupe todo el espacio disponible y se ajuste a la pantalla
-  },
+  
 });
+
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <ImageBackground
-      source={require("./assets/bg.png")}
-      style={styles.backgroundImage}
-    >
-      <View style={styles.container}>
-        <Login />
-      </View>
-      <Navbar></Navbar>
-    </ImageBackground>
+
+      <NavigationContainer>
+        
+        <Tab.Navigator options={{}}>
+            <Tab.Screen name="Home" component={Home} options={{
+            headerTitle: "",
+            headerTransparent: true,
+          }} />
+            <Tab.Screen name="Carrito" component={Login} options={{
+            headerTitle: "",
+            headerTransparent: true,
+          }} />
+            <Tab.Screen name="Perfil" component={Perfil} options={{
+            headerTitle: "",
+            headerTransparent: true,
+          }} />
+        </Tab.Navigator>
+          
+      </NavigationContainer>
+
   );
 }
