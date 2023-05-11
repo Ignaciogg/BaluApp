@@ -1,7 +1,8 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, ImageBackground } from "react-native";
-import Home from "./src/components/Home";
+import Home from "./src/views/Home";
 import Navbar from "./src/components/Navbar";
+import Login from "./src/views/Login";
 
 const styles = StyleSheet.create({
   container: {
@@ -20,7 +21,7 @@ export default function App() {
       style={styles.backgroundImage}
     >
       <View style={styles.container}>
-        <Home />
+        <Login />
       </View>
       <Navbar></Navbar>
     </ImageBackground>

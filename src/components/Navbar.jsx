@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
+import { View, StyleSheet, TouchableOpacity, Text, Button } from "react-native";
 
 const styles = StyleSheet.create({
   navbarContainer: {
@@ -22,18 +22,21 @@ const styles = StyleSheet.create({
   },
 });
 
-const Navbar = () => {
+const Navbar = ({ navigation }) => {
+  const goToPerfil = () => {
+    navigation.navigate('Perfil');
+  };
   return (
     <View style={styles.navbarContainer}>
-      <TouchableOpacity style={styles.navbarButton}>
+      <Button style={styles.navbarButton}>
         <Text style={styles.navbarButtonText}>Home</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.navbarButton}>
+      </Button>
+      <Button style={styles.navbarButton}>
         <Text style={styles.navbarButtonText}>Carrito</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.navbarButton}>
-        <Text style={styles.navbarButtonText}>Perfil</Text>
-      </TouchableOpacity>
+      </Button>
+      <Button style={styles.navbarButton}>
+        <Text style={styles.navbarButtonText} onPress={goToPerfil}>Perfil</Text>
+      </Button>
     </View>
   );
 };
