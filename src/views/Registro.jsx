@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, Image, Button, ImageBackground, TextInput, TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet, Image, Button, ImageBackground, TextInput } from "react-native";
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   imagecenter: {
-    marginTop: 150,
+    marginTop: 110,
     alignSelf: "center",
     maxWidth: 184,
     height: 126,
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   },
 });
   
-const Login = () => {
+const Registro = () => {
 
   const [nombre, setUsuario] = useState('');
   const [password, setUsuario2] = useState('');
@@ -93,31 +93,49 @@ const Login = () => {
           onChangeText={(texto1) => setUsuario(texto1)}
         />
         <TextInput
+          placeholder="CORREO ELECTRÓNICO"
+          placeholderTextColor="black"
+          style={styles.input2}
+          value={password}
+          onChangeText={(texto2) => setUsuario2(texto2)}
+        />
+        <TextInput
+          placeholder="NÚMERO DE TELÉFONO"
+          placeholderTextColor="black"
+          style={styles.input2}
+          value={password}
+          onChangeText={(texto2) => setUsuario2(texto2)}
+        />
+        <TextInput
           placeholder="CONTRASEÑA"
           placeholderTextColor="black"
           style={styles.input2}
           value={password}
           onChangeText={(texto2) => setUsuario2(texto2)}
         />
-        <Text 
-          style={styles.forgot}>¿Has olvidado tu contraseña?
-        </Text>
+        <TextInput
+          placeholder="REPETIR CONTRASEÑA"
+          placeholderTextColor="black"
+          style={styles.input2}
+          value={password}
+          onChangeText={(texto2) => setUsuario2(texto2)}
+        />
 
         <Button
-          title="Acceder"
+          title="REGISTRARME"
           color="#97319E"
           style={styles.btn}
           onPress={() => navigation.navigate('Home')}
         />
       </View>
 
-      <TouchableOpacity onPress={() => navigation.navigate('Registro')}>
-          <Text style={styles.registro}>REGISTRARME</Text>
-      </TouchableOpacity>
+      <Text 
+        style={styles.registro}>LOGIN
+      </Text>
 
     </ImageBackground>
     
   );
 };
 
-export default Login;
+export default Registro;
