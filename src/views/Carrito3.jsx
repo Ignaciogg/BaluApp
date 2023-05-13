@@ -22,14 +22,6 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     fontSize: 23,
   },
-  rectangulo: {
-    backgroundColor: "#fff",
-    height: 112,
-    width: 335,
-    borderRadius: 30,
-    marginTop: 20,
-    marginLeft: 8,
-  },
   pagoContainer: {
     color: "#97319E",
     width: 335,
@@ -43,7 +35,7 @@ const styles = StyleSheet.create({
   },
 });
   
-const Carrito = () => {
+const Carrito3 = () => {
 
 
   const navigation = useNavigation();
@@ -58,25 +50,9 @@ const Carrito = () => {
             />
             <Text style={styles.textoCarrito}>Tu carrito</Text>
 
-            <View style={styles.rectangulo}>
-
-            </View>
-            <View style={styles.rectangulo}>
-
-            </View>
-            <View style={styles.rectangulo}>
-
-            </View>
-
-            <Text style={styles.textoCarrito}>  Total                                  46€</Text>
-
+            
             <View>
-                <Button
-                title="Procesar pago"
-                color="#97319E"
-                style={styles.pagoContainer}
-                onPress={() => navigation.navigate('Carrito2')}
-                />
+                <Text style={styles.pago} onPress={navigation.navigate('')}>Procesar pago</Text>
             </View>
             
         </View>
@@ -87,4 +63,4 @@ const Carrito = () => {
   );
 };
 
-export default Carrito;
+export default Carrito3;
