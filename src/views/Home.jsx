@@ -5,8 +5,8 @@ const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
     resizeMode: "cover",
-    width: '100%',
-    height: '100%',
+    height: 844,
+    width: 394,
   },
   strong: {
     color: "#fff",
@@ -32,6 +32,8 @@ const styles = StyleSheet.create({
   imagecenter: {
     marginTop: 20,
     alignSelf: "center",
+    width: 116,
+    height: 80,
   },
   itemTodaCarta: {
     justifyContent: "flex-start",
@@ -66,7 +68,7 @@ const Home = () => {
         <View style={{ margin: 20 }}>
           <Image
             style={styles.imagecenter}
-            source={require("../../assets/balu.png")}
+            source={require("../../assets/logoBalu.png")}
           />
           <Text style={styles.strong}>MOST POPULAR</Text>
           <View style={styles.imagesContainer}>
