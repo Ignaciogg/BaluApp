@@ -151,12 +151,14 @@ const styles = StyleSheet.create({
     marginTop: 20,
     fontSize: 20,
     fontWeight: "bold",
+    fontFamily: 'DMSans-Regular',
   },
   price: {
     alignSelf: "center",
     color: "#fff",
     marginTop: 10,
     fontSize: 20,
+    fontFamily: 'DMSans-Regular',
   },
   container: {
     flexDirection: "row",
@@ -166,6 +168,7 @@ const styles = StyleSheet.create({
   },
   count: {
     fontSize: 24,
+    fontFamily: 'DMSans-Regular',
     marginHorizontal: 20,
     color: "#fff",
   },
@@ -180,6 +183,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#FFF",
     fontSize: 20,
+    fontFamily: 'DMSans-Regular',
   },
   containerIngredients: {
     flexDirection: "column",
@@ -191,6 +195,7 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 20,
     fontWeight: "bold",
+    fontFamily: 'DMSans-Regular',
   },
   containerSvg: {
     color: "#fff",
@@ -220,5 +225,6 @@ const styles = StyleSheet.create({
   textaddButton: {
     color: "#fff",
     fontSize: 20,
+    fontFamily: 'DMSans-Regular',
   },
 });

@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   },
 });
   
-const Carrito3 = () => {
+const Carrito4 = () => {
 
 
   const navigation = useNavigation();
@@ -65,4 +65,4 @@ const Carrito3 = () => {
   );
 };
 
-export default Carrito3;
+export default Carrito4;

@@ -9,18 +9,6 @@ const styles = StyleSheet.create({
     height: 844,
     width: 394,
   },
-  strong: {
-    color: "#fff",
-    fontWeight: "bold",
-    marginTop: 25,
-    fontSize: 16,
-  },
-  strong2: {
-    color: "#fff",
-    fontWeight: "bold",
-    marginTop: 24,
-    fontSize: 16,
-  },
   imagecenter: {
     marginTop: 110,
     alignSelf: "center",
@@ -36,6 +24,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#EEB1FF",
     borderRadius: 10,
     fontSize: 15,
+    fontFamily: 'DMSans-Regular',
   },
   input2: {
     height: 40,
@@ -45,6 +34,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#EEB1FF",
     borderRadius: 10,
     fontSize: 15,
+    fontFamily: 'DMSans-Regular',
   },
   forgot: {
     color: "#fff",
@@ -53,6 +43,7 @@ const styles = StyleSheet.create({
     textDecorationLine: "underline",
     marginLeft: 72,
     marginTop: 5,
+    fontFamily: 'DMSans-Regular',
   },
   registro: {
     color: "#fff",
@@ -60,6 +51,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textDecorationLine: "underline",
     marginLeft: 135,
+    fontFamily: 'DMSans-Regular',
   },
   btn: {
     marginTop: 5,

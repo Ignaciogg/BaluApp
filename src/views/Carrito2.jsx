@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     marginTop: 25,
     marginLeft: 20,
     fontSize: 23,
+    fontFamily: 'DMSans-Regular',
   },
   pagoContainer: {
     color: "#97319E",
@@ -32,6 +33,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginTop: 25,
     fontSize: 18,
+    fontFamily: 'DMSans-Regular',
   },
 });
   

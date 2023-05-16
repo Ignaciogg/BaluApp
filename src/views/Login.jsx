@@ -1,6 +1,7 @@
 import { Text, View, StyleSheet, Image, Button, ImageBackground, TextInput, TouchableOpacity } from "react-native";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
+import * as Font from 'expo-font'; 
 
 const styles = StyleSheet.create({
   backgroundImage: {
@@ -8,18 +9,6 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
     width: '100%',
     height: '100%',
-  },
-  strong: {
-    color: "#fff",
-    fontWeight: "bold",
-    marginTop: 25,
-    fontSize: 16,
-  },
-  strong2: {
-    color: "#fff",
-    fontWeight: "bold",
-    marginTop: 24,
-    fontSize: 16,
   },
   imagecenter: {
     marginTop: 150,
@@ -36,6 +25,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#EEB1FF",
     borderRadius: 10,
     fontSize: 15,
+    fontFamily: 'DMSans-Regular',
   },
   input2: {
     height: 40,
@@ -45,19 +35,21 @@ const styles = StyleSheet.create({
     backgroundColor: "#EEB1FF",
     borderRadius: 10,
     fontSize: 15,
+    fontFamily: 'DMSans-Regular',
   },
   forgot: {
     color: "#fff",
-    fontWeight: "bold",
     fontSize: 16,
+    fontFamily: 'DMSans-Regular',
     textDecorationLine: "underline",
     marginLeft: 72,
     marginTop: 5,
+    marginBottom: 15,
   },
   registro: {
     color: "#fff",
-    fontWeight: "bold",
     fontSize: 18,
+    fontFamily: 'DMSans-Bold',
     textDecorationLine: "underline",
     marginLeft: 135,
   },
@@ -66,6 +58,7 @@ const styles = StyleSheet.create({
     width: 178,
     height: 38,
     fontWeight: "bold",
+    fontFamily: 'DMSans-Regular',
     borderRadius: 10,
   },
 });
@@ -100,7 +93,7 @@ const Login = () => {
           onChangeText={(texto2) => setUsuario2(texto2)}
         />
         <Text 
-          style={styles.forgot}>¿Has olvidado tu contraseña?
+          style={styles.forgot}>¿Ha olvidado su contraseña?
         </Text>
 
         <Button

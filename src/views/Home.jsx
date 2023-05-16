@@ -28,7 +28,7 @@ const Home = () => {
             style={styles.imagecenter}
             source={require("../../assets/logoBalu.png")}
           />
-          <Text style={styles.strong}>MOST POPULAR</Text>
+          <Text style={styles.textPrincipal}>MOST POPULAR</Text>
 
           <View style={styles.imagesContainer}>
             <Image
@@ -44,7 +44,7 @@ const Home = () => {
               source={require("../../assets/bowl3.png")}
             />
           </View>
-          <Text style={styles.strong2}>TODA LA CARTA</Text>
+          <Text style={styles.textPrincipal}>TODA LA CARTA</Text>
           <View>
             <View style={styles.itemTodaCarta}>
               <Image
@@ -110,18 +110,6 @@ const styles = StyleSheet.create({
     height: 844,
     width: 394,
   },
-  strong: {
-    color: "#fff",
-    fontWeight: "bold",
-    marginTop: 25,
-    fontSize: 16,
-  },
-  strong2: {
-    color: "#fff",
-    fontWeight: "bold",
-    marginTop: 24,
-    fontSize: 16,
-  },
   imagesContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -148,15 +136,23 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     marginLeft: 10,
   },
+  textPrincipal: {
+    color: "#fff",
+    marginTop: 24,
+    fontSize: 18,
+    fontFamily: 'DMSans-Bold',
+  },
   text: {
     color: "#fff",
     marginBottom: 2,
     fontSize: 16,
+    fontFamily: 'DMSans-Regular',
   },
   textprecio: {
     color: "#fff",
     marginBottom: 10,
     fontSize: 16,
+    fontFamily: 'DMSans-Regular',
   },
   btn: {
     borderRadius: 10,
