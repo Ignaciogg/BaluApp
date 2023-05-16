@@ -107,7 +107,7 @@ const Login = () => {
           title="Acceder"
           color="#97319E"
           style={styles.btn}
-          onPress={() => navigation.navigate('Home')}
+          onPress={() => navigation.navigate('Navbar')}
         />
       </View>
 

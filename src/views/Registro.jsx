@@ -73,7 +73,10 @@ const styles = StyleSheet.create({
 const Registro = () => {
 
   const [nombre, setUsuario] = useState('');
-  const [password, setUsuario2] = useState('');
+  const [correo, setUsuario2] = useState('');
+  const [telf, setUsuario3] = useState('');
+  const [password, setUsuario4] = useState('');
+  const [repetir, setUsuario5] = useState('');
 
   const navigation = useNavigation();
 
@@ -96,29 +99,29 @@ const Registro = () => {
           placeholder="CORREO ELECTRÓNICO"
           placeholderTextColor="black"
           style={styles.input2}
-          value={password}
+          value={correo}
           onChangeText={(texto2) => setUsuario2(texto2)}
         />
         <TextInput
           placeholder="NÚMERO DE TELÉFONO"
           placeholderTextColor="black"
           style={styles.input2}
-          value={password}
-          onChangeText={(texto2) => setUsuario2(texto2)}
+          value={telf}
+          onChangeText={(texto3) => setUsuario3(texto3)}
         />
         <TextInput
           placeholder="CONTRASEÑA"
           placeholderTextColor="black"
           style={styles.input2}
           value={password}
-          onChangeText={(texto2) => setUsuario2(texto2)}
+          onChangeText={(texto4) => setUsuario4(texto4)}
         />
         <TextInput
           placeholder="REPETIR CONTRASEÑA"
           placeholderTextColor="black"
           style={styles.input2}
-          value={password}
-          onChangeText={(texto2) => setUsuario2(texto2)}
+          value={repetir}
+          onChangeText={(texto5) => setUsuario5(texto5)}
         />
 
         <Button

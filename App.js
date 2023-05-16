@@ -1,6 +1,21 @@
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from '@react-navigation/stack';
+
+import Login from "./src/views/Login";
 import Navbar from "./src/components/Navbar";
+import Registro from "./src/views/Registro";
 
 export default function App() {
   
-  return <Navbar />;
+  const Stack = createStackNavigator();
+
+  return (
+    <NavigationContainer>
+      <Stack.Navigator >
+        <Stack.Screen name="Login" options={{headerShown: false,}} component={Login} />
+        <Stack.Screen name="Navbar" options={{headerShown: false,}} component={Navbar} />
+        <Stack.Screen name="Registro" options={{headerShown: false,}} component={Registro} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
