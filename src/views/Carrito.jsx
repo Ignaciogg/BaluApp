@@ -1,13 +1,4 @@
-import {
-  Text,
-  View,
-  StyleSheet,
-  Image,
-  Button,
-  ImageBackground,
-  TextInput,
-  TouchableOpacity,
-} from "react-native";
+import { Text, View, StyleSheet, Image, Button, ImageBackground, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 
@@ -18,15 +9,23 @@ const Carrito = () => {
     navigation.navigate("Carrito2");
   };
 
-  const [count, setCount] = useState(1);
+  const [items, setItems] = useState([
+    { name: "Summer Bowl", price: "8,99€", count: 1, image: require("../../assets/bowl1.png") },
+    { name: "Spring Bowl", price: "8,99€", count: 1, image: require("../../assets/bowl2.png") },
+    { name: "Bowl Personalizado", price: "11,99€", count: 1, image: require("../../assets/bowl3.png") },
+  ]);
 
-  const handleIncrement = () => {
-    setCount(count + 1);
+  const handleIncrement = (index) => {
+    const updatedItems = [...items];
+    updatedItems[index].count += 1;
+    setItems(updatedItems);
   };
 
-  const handleDecrement = () => {
-    if (count > 0) {
-      setCount(count - 1);
+  const handleDecrement = (index) => {
+    const updatedItems = [...items];
+    if (updatedItems[index].count > 0) {
+      updatedItems[index].count -= 1;
+      setItems(updatedItems);
     }
   };
 
@@ -42,89 +41,40 @@ const Carrito = () => {
         />
         <Text style={styles.textoCarrito}>Tu carrito</Text>
 
-        <View style={styles.rectangulo}>
-          <Image
-            style={styles.image}
-            source={require("../../assets/bowl1.png")}
-          />
+        {items.map((item, index) => (
+          <View key={index} style={styles.rectangulo}>
+            <Image
+              style={styles.image}
+              source={item.image}
+            />
 
-          <View style={styles.textContainer}>
-            <Text style={styles.text}>Summer Bowl</Text>
-            <Text style={styles.textprecio}>8,99€</Text>
-          </View>
+            <View style={styles.textContainer}>
+              <Text style={styles.text}>{item.name}</Text>
+              <Text style={styles.textprecio}>{item.price}</Text>
+            </View>
 
-          <View style={styles.containerBotones}>
-            <TouchableOpacity
-              style={styles.buttoncounter}
-              onPress={handleDecrement}
-            >
-              <Text style={styles.buttonText}>-</Text>
-            </TouchableOpacity>
-            <Text style={styles.count}>{count}</Text>
-            <TouchableOpacity
-              style={styles.buttoncounter}
-              onPress={handleIncrement}
-            >
-              <Text style={styles.buttonText}>+</Text>
-            </TouchableOpacity>
+            <View style={styles.containerBotones}>
+              <TouchableOpacity
+                style={styles.buttoncounter}
+                onPress={() => handleDecrement(index)}
+              >
+                <Text style={styles.buttonText}>-</Text>
+              </TouchableOpacity>
+              <Text style={styles.count}>{item.count}</Text>
+              <TouchableOpacity
+                style={styles.buttoncounter}
+                onPress={() => handleIncrement(index)}
+              >
+                <Text style={styles.buttonText}>+</Text>
+              </TouchableOpacity>
+            </View>
           </View>
+        ))}
+
+        <View style={styles.precioContainer}>
+          <Text style={styles.textoCarrito}>Total</Text>
+          <Text style={styles.textoCarrito}>29,97€</Text>
         </View>
-        <View style={styles.rectangulo2}>
-          <Image
-            style={styles.image}
-            source={require("../../assets/bowl2.png")}
-          />
-
-          <View style={styles.textContainer}>
-            <Text style={styles.text}>Spring Bowl</Text>
-            <Text style={styles.textprecio}>8,99€</Text>
-          </View>
-
-          <View style={styles.containerBotones}>
-            <TouchableOpacity
-              style={styles.buttoncounter}
-              onPress={handleDecrement}
-            >
-              <Text style={styles.buttonText}>-</Text>
-            </TouchableOpacity>
-            <Text style={styles.count}>{count}</Text>
-            <TouchableOpacity
-              style={styles.buttoncounter}
-              onPress={handleIncrement}
-            >
-              <Text style={styles.buttonText}>+</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-        <View style={styles.rectangulo2}>
-          <Image
-            style={styles.image}
-            source={require("../../assets/bowl3.png")}
-          />
-
-          <View style={styles.textContainer}>
-            <Text style={styles.text}>Bowl Personalizado</Text>
-            <Text style={styles.textprecio}>11,99€</Text>
-          </View>
-
-          <View style={styles.containerBotones}>
-            <TouchableOpacity
-              style={styles.buttoncounter}
-              onPress={handleDecrement}
-            >
-              <Text style={styles.buttonText}>-</Text>
-            </TouchableOpacity>
-            <Text style={styles.count}>{count}</Text>
-            <TouchableOpacity
-              style={styles.buttoncounter}
-              onPress={handleIncrement}
-            >
-              <Text style={styles.buttonText}>+</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-
-        <Text style={styles.textoCarrito}> Total 29,97€</Text>
 
         <View>
           <Button
@@ -166,17 +116,7 @@ const styles = StyleSheet.create({
     width: 335,
     borderRadius: 30,
     marginLeft: 8,
-    alignItems: "center",
-    flexDirection: "row",
-  },
-  rectangulo2: {
-    backgroundColor: "#fff",
-    height: 112,
-    width: 335,
-    borderRadius: 30,
-    marginTop: 20,
-    marginLeft: 8,
-    marginLeft: 8,
+    marginBottom: 20,
     alignItems: "center",
     flexDirection: "row",
   },
@@ -238,6 +178,12 @@ const styles = StyleSheet.create({
     width: 69,
     height: 73,
     borderRadius: 20,
+    marginLeft: 10,
+  },
+  precioContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginRight: 25,
     marginLeft: 10,
   },
 });

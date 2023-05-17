@@ -51,11 +51,6 @@ const Carrito3 = () => {
             source={require("../../assets/logoBalu.png")}
             />
             <Text style={styles.textoCarrito}>Tu carrito</Text>
-
-            
-            <View>
-                <Text style={styles.pago} onPress={navigation.navigate('')}>Procesar pago</Text>
-            </View>
             
         </View>
 

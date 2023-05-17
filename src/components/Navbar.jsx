@@ -22,7 +22,8 @@ const Navbar = () => {
             <Tab.Screen name="Home" component={Home} options={{
             headerTitle: "",
             headerTransparent: true,
-            tabBarActiveTintColor: "#97319E",
+            tabBarActiveTintColor: "#4D0053",
+            tabBarInactiveTintColor: "#97319E",
             tabBarLabel: "",
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="home" color={color} size={35} style={styles.icono} />
@@ -31,7 +32,8 @@ const Navbar = () => {
             <Tab.Screen name="Carrito" component={Carrito} options={{
             headerTitle: "",
             headerTransparent: true,
-            tabBarActiveTintColor: "#97319E",
+            tabBarActiveTintColor: "#4D0053",
+            tabBarInactiveTintColor: "#97319E",
             tabBarLabel: "",
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="cart" color={color} size={35} style={styles.icono} />
@@ -40,7 +42,8 @@ const Navbar = () => {
             <Tab.Screen name="Perfil" component={Perfil} options={{
             headerTitle: "",
             headerTransparent: true,
-            tabBarActiveTintColor: "#97319E",
+            tabBarActiveTintColor: "#4D0053",
+            tabBarInactiveTintColor: "#97319E",
             tabBarLabel: "",
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="account" color={color} size={35} style={styles.icono} />

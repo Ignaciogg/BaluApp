@@ -7,7 +7,11 @@ import Login from "./src/views/Login";
 import Navbar from "./src/components/Navbar";
 import Registro from "./src/views/Registro";
 import SummerBowl from "./src/views/SummerBowl";
+
+import Carrito from "./src/views/Carrito";
 import Carrito2 from "./src/views/Carrito2";
+import Carrito3 from "./src/views/Carrito3";
+import Carrito4 from "./src/views/Carrito4";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -59,9 +63,24 @@ export default function App() {
           component={SummerBowl}
         />
         <Stack.Screen
+          name="Carrito"
+          options={{ headerShown: false }}
+          component={Carrito}
+        />
+        <Stack.Screen
           name="Carrito2"
           options={{ headerShown: false }}
           component={Carrito2}
+        />
+        <Stack.Screen
+          name="Carrito3"
+          options={{ headerShown: false }}
+          component={Carrito3}
+        />
+        <Stack.Screen
+          name="Carrito4"
+          options={{ headerShown: false }}
+          component={Carrito4}
         />
       </Stack.Navigator>
     </NavigationContainer>

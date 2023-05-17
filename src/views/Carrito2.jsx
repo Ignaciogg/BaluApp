@@ -1,17 +1,21 @@
-import {
-  Text,
-  View,
-  StyleSheet,
-  Image,
-  Button,
-  ImageBackground,
-  TextInput,
-  TouchableOpacity,
-} from "react-native";
+import { Text, View, StyleSheet, Image, Button, ImageBackground, TextInput, TouchableOpacity} from "react-native";
 import React, { useState } from "react";
 import { StackNavigator, useNavigation } from "@react-navigation/native";
 
 const Carrito2 = () => {
+
+  const navigation = useNavigation();
+
+  const handleButtonClickCarrito3 = () => {
+    navigation.navigate("Carrito3");
+  };
+
+  const [items, setItems] = useState([
+    { name: "Tarjeta de crédito", count: 1, image: require("../../assets/logos_tarjeta.png") },
+    { name: "Paypal", count: 0, image: require("../../assets/logos_paypal.png") },
+    { name: "Google Pay", count: 0, image: require("../../assets/logos_google-icon.png") },
+  ]);
+
   return (
     <ImageBackground
       source={require("../../assets/bg.png")}
@@ -22,11 +26,33 @@ const Carrito2 = () => {
           style={styles.imagecenter}
           source={require("../../assets/logoBalu.png")}
         />
-        <Text style={styles.textoCarrito}>Tu carrito</Text>
+        <Text style={styles.textoCarrito}>Pago mediante</Text>
+
+        {items.map((item, index) => (
+          <View key={index} style={styles.rectangulo}>
+            <Image
+              style={styles.image}
+              source={item.image}/>
+
+            <View style={styles.textContainer}>
+              <Text style={styles.text}>{item.name}</Text>
+            </View>
+
+            <View style={styles.containerBotones}>
+              
+            </View>
+          </View>
+        ))}
 
         <View>
-          <Text style={styles.pago}>Procesar pago</Text>
+          <Button
+            title="Continuar"
+            color="#97319E"
+            style={styles.pagoContainer}
+            onPress={handleButtonClickCarrito3}
+          />
         </View>
+        
       </View>
     </ImageBackground>
   );
@@ -46,23 +72,34 @@ const styles = StyleSheet.create({
   },
   textoCarrito: {
     color: "#fff",
-    fontWeight: "bold",
     marginTop: 25,
     marginLeft: 20,
+    marginBottom: 5,
     fontSize: 23,
-    fontFamily: "DMSans-Regular",
+    fontFamily: "DMSans-Bold",
   },
-  pagoContainer: {
-    color: "#97319E",
+  rectangulo: {
+    backgroundColor: "#fff",
+    height: 73,
     width: 335,
-    height: 51,
+    borderRadius: 30,
+    marginLeft: 8,
+    marginTop: 15,
+    alignItems: "center",
+    flexDirection: "row",
   },
-  pago: {
-    color: "#fff",
-    fontWeight: "bold",
-    marginTop: 25,
-    fontSize: 18,
-    fontFamily: "DMSans-Regular",
+  textContainer: {
+    flex: 4,
+    marginLeft: 15,
+  },
+  text: {
+    fontFamily: "DMSans-Medium",
+    fontSize: 14,
+  },
+  image: {
+    flex: 1,
+    resizeMode: "contain",
+    marginLeft: 15,
   },
 });
 
