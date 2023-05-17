@@ -1,7 +1,36 @@
-import { Text, View, StyleSheet, Image, Button, ImageBackground, TextInput, TouchableOpacity } from "react-native";
-import React, { useState } from 'react';
-import { StackNavigator, useNavigation } from '@react-navigation/native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  Image,
+  Button,
+  ImageBackground,
+  TextInput,
+  TouchableOpacity,
+} from "react-native";
+import React, { useState } from "react";
+import { StackNavigator, useNavigation } from "@react-navigation/native";
 
+const Carrito2 = () => {
+  return (
+    <ImageBackground
+      source={require("../../assets/bg.png")}
+      style={styles.backgroundImage}
+    >
+      <View style={{ margin: 20 }}>
+        <Image
+          style={styles.imagecenter}
+          source={require("../../assets/logoBalu.png")}
+        />
+        <Text style={styles.textoCarrito}>Tu carrito</Text>
+
+        <View>
+          <Text style={styles.pago}>Procesar pago</Text>
+        </View>
+      </View>
+    </ImageBackground>
+  );
+};
 const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
@@ -21,7 +50,7 @@ const styles = StyleSheet.create({
     marginTop: 25,
     marginLeft: 20,
     fontSize: 23,
-    fontFamily: 'DMSans-Regular',
+    fontFamily: "DMSans-Regular",
   },
   pagoContainer: {
     color: "#97319E",
@@ -33,36 +62,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginTop: 25,
     fontSize: 18,
-    fontFamily: 'DMSans-Regular',
+    fontFamily: "DMSans-Regular",
   },
 });
-  
-const Carrito2 = () => {
-
-
-  const navigation = useNavigation();
-
-  return (
-    <ImageBackground source={require("../../assets/bg.png")} style={styles.backgroundImage}>
-
-        <View style={{ margin: 20 }}>
-            <Image
-            style={styles.imagecenter}
-            source={require("../../assets/logoBalu.png")}
-            />
-            <Text style={styles.textoCarrito}>Tu carrito</Text>
-
-            
-            <View>
-                <Text style={styles.pago} onPress={navigation.navigate('')}>Procesar pago</Text>
-            </View>
-            
-        </View>
-
-
-    </ImageBackground>
-    
-  );
-};
 
 export default Carrito2;

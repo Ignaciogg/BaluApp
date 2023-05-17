@@ -1,6 +1,143 @@
-import { Text, View, StyleSheet, Image, Button, ImageBackground, TextInput, TouchableOpacity } from "react-native";
-import React, { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  Image,
+  Button,
+  ImageBackground,
+  TextInput,
+  TouchableOpacity,
+} from "react-native";
+import React, { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+
+const Carrito = () => {
+  const navigation = useNavigation();
+
+  const handleButtonClickCarrito2 = () => {
+    navigation.navigate("Carrito2");
+  };
+
+  const [count, setCount] = useState(1);
+
+  const handleIncrement = () => {
+    setCount(count + 1);
+  };
+
+  const handleDecrement = () => {
+    if (count > 0) {
+      setCount(count - 1);
+    }
+  };
+
+  return (
+    <ImageBackground
+      source={require("../../assets/bg.png")}
+      style={styles.backgroundImage}
+    >
+      <View style={{ margin: 20 }}>
+        <Image
+          style={styles.imagecenter}
+          source={require("../../assets/logoBalu.png")}
+        />
+        <Text style={styles.textoCarrito}>Tu carrito</Text>
+
+        <View style={styles.rectangulo}>
+          <Image
+            style={styles.image}
+            source={require("../../assets/bowl1.png")}
+          />
+
+          <View style={styles.textContainer}>
+            <Text style={styles.text}>Summer Bowl</Text>
+            <Text style={styles.textprecio}>8,99€</Text>
+          </View>
+
+          <View style={styles.containerBotones}>
+            <TouchableOpacity
+              style={styles.buttoncounter}
+              onPress={handleDecrement}
+            >
+              <Text style={styles.buttonText}>-</Text>
+            </TouchableOpacity>
+            <Text style={styles.count}>{count}</Text>
+            <TouchableOpacity
+              style={styles.buttoncounter}
+              onPress={handleIncrement}
+            >
+              <Text style={styles.buttonText}>+</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={styles.rectangulo2}>
+          <Image
+            style={styles.image}
+            source={require("../../assets/bowl2.png")}
+          />
+
+          <View style={styles.textContainer}>
+            <Text style={styles.text}>Spring Bowl</Text>
+            <Text style={styles.textprecio}>8,99€</Text>
+          </View>
+
+          <View style={styles.containerBotones}>
+            <TouchableOpacity
+              style={styles.buttoncounter}
+              onPress={handleDecrement}
+            >
+              <Text style={styles.buttonText}>-</Text>
+            </TouchableOpacity>
+            <Text style={styles.count}>{count}</Text>
+            <TouchableOpacity
+              style={styles.buttoncounter}
+              onPress={handleIncrement}
+            >
+              <Text style={styles.buttonText}>+</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={styles.rectangulo2}>
+          <Image
+            style={styles.image}
+            source={require("../../assets/bowl3.png")}
+          />
+
+          <View style={styles.textContainer}>
+            <Text style={styles.text}>Bowl Personalizado</Text>
+            <Text style={styles.textprecio}>11,99€</Text>
+          </View>
+
+          <View style={styles.containerBotones}>
+            <TouchableOpacity
+              style={styles.buttoncounter}
+              onPress={handleDecrement}
+            >
+              <Text style={styles.buttonText}>-</Text>
+            </TouchableOpacity>
+            <Text style={styles.count}>{count}</Text>
+            <TouchableOpacity
+              style={styles.buttoncounter}
+              onPress={handleIncrement}
+            >
+              <Text style={styles.buttonText}>+</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <Text style={styles.textoCarrito}> Total 29,97€</Text>
+
+        <View>
+          <Button
+            title="Procesar pago"
+            color="#97319E"
+            style={styles.pagoContainer}
+            onPress={handleButtonClickCarrito2}
+          />
+        </View>
+      </View>
+    </ImageBackground>
+  );
+};
 
 const styles = StyleSheet.create({
   backgroundImage: {
@@ -20,7 +157,7 @@ const styles = StyleSheet.create({
     marginTop: 25,
     marginLeft: 20,
     fontSize: 23,
-    fontFamily: 'DMSans-Bold',
+    fontFamily: "DMSans-Bold",
     marginBottom: 20,
   },
   rectangulo: {
@@ -53,7 +190,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginTop: 25,
     fontSize: 18,
-    fontFamily: 'DMSans-Regular',
+    fontFamily: "DMSans-Regular",
   },
   containerBotones: {
     flexDirection: "row",
@@ -64,7 +201,7 @@ const styles = StyleSheet.create({
   },
   count: {
     fontSize: 18,
-    fontFamily: 'DMSans-Regular',
+    fontFamily: "DMSans-Regular",
     marginHorizontal: 10,
     color: "black",
   },
@@ -79,7 +216,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#FFF",
     fontSize: 20,
-    fontFamily: 'DMSans-Regular',
+    fontFamily: "DMSans-Regular",
   },
   textContainer: {
     flex: 1,
@@ -90,12 +227,12 @@ const styles = StyleSheet.create({
   text: {
     color: "black",
     fontSize: 16,
-    fontFamily: 'DMSans-Medium',
+    fontFamily: "DMSans-Medium",
   },
   textprecio: {
     color: "#97319E",
     fontSize: 16,
-    fontFamily: 'DMSans-Bold',
+    fontFamily: "DMSans-Bold",
   },
   image: {
     width: 69,
@@ -104,136 +241,5 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
 });
-  
-const Carrito = () => {
-
-  const navigation = useNavigation();
-  const handleButtonClickCarrito2 = () => {
-    navigation.navigate("Carrito2");
-  };
-
-  const [count, setCount] = useState(1);
-
-  const handleIncrement = () => {
-    setCount(count + 1);
-  };
-
-  const handleDecrement = () => {
-    if (count > 0) {
-      setCount(count - 1);
-    }
-  };
-
-  return (
-    <ImageBackground source={require("../../assets/bg.png")} style={styles.backgroundImage}>
-
-        <View style={{ margin: 20 }}>
-            <Image
-            style={styles.imagecenter}
-            source={require("../../assets/logoBalu.png")}
-            />
-            <Text style={styles.textoCarrito}>Tu carrito</Text>
-
-            <View style={styles.rectangulo}>
-
-              <Image
-                style={styles.image}
-                source={require("../../assets/bowl1.png")}
-              />
-              
-              <View style={styles.textContainer}>
-                <Text style={styles.text}>Summer Bowl</Text>
-                <Text style={styles.textprecio}>8,99€</Text>
-              </View>
-
-              <View style={styles.containerBotones}>
-                <TouchableOpacity
-                  style={styles.buttoncounter}
-                  onPress={handleDecrement}
-                >
-                  <Text style={styles.buttonText}>-</Text>
-                </TouchableOpacity>
-                <Text style={styles.count}>{count}</Text>
-                <TouchableOpacity
-                  style={styles.buttoncounter}
-                  onPress={handleIncrement}
-                >
-                  <Text style={styles.buttonText}>+</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-            <View style={styles.rectangulo2}>
-              <Image
-                style={styles.image}
-                source={require("../../assets/bowl2.png")}
-              />
-              
-              <View style={styles.textContainer}>
-                <Text style={styles.text}>Spring Bowl</Text>
-                <Text style={styles.textprecio}>8,99€</Text>
-              </View>
-
-              <View style={styles.containerBotones}>
-                <TouchableOpacity
-                  style={styles.buttoncounter}
-                  onPress={handleDecrement}
-                >
-                  <Text style={styles.buttonText}>-</Text>
-                </TouchableOpacity>
-                <Text style={styles.count}>{count}</Text>
-                <TouchableOpacity
-                  style={styles.buttoncounter}
-                  onPress={handleIncrement}
-                >
-                  <Text style={styles.buttonText}>+</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-            <View style={styles.rectangulo2}>
-              <Image
-                style={styles.image}
-                source={require("../../assets/bowl3.png")}
-              />
-              
-              <View style={styles.textContainer}>
-                <Text style={styles.text}>Bol Personalizado</Text>
-                <Text style={styles.textprecio}>11,99€</Text>
-              </View>
-
-              <View style={styles.containerBotones}>
-                <TouchableOpacity
-                  style={styles.buttoncounter}
-                  onPress={handleDecrement}
-                >
-                  <Text style={styles.buttonText}>-</Text>
-                </TouchableOpacity>
-                <Text style={styles.count}>{count}</Text>
-                <TouchableOpacity
-                  style={styles.buttoncounter}
-                  onPress={handleIncrement}
-                >
-                  <Text style={styles.buttonText}>+</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-
-            <Text style={styles.textoCarrito}>  Total                              29,97€</Text>
-
-            <View>
-                <Button
-                title="Procesar pago"
-                color="#97319E"
-                style={styles.pagoContainer}
-                onPress={handleButtonClickCarrito2}
-                />
-            </View>
-            
-        </View>
-
-
-    </ImageBackground>
-    
-  );
-};
 
 export default Carrito;
