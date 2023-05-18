@@ -12,6 +12,7 @@ import Carrito from "./src/views/Carrito";
 import Carrito2 from "./src/views/Carrito2";
 import Carrito3 from "./src/views/Carrito3";
 import Carrito4 from "./src/views/Carrito4";
+import Carrito5 from "./src/views/Carrito5";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -81,6 +82,11 @@ export default function App() {
           name="Carrito4"
           options={{ headerShown: false }}
           component={Carrito4}
+        />
+        <Stack.Screen
+          name="Carrito5"
+          options={{ headerShown: false }}
+          component={Carrito5}
         />
       </Stack.Navigator>
     </NavigationContainer>

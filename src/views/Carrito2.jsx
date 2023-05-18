@@ -11,17 +11,23 @@ const Carrito2 = () => {
   };
 
   const [items, setItems] = useState([
-    { name: "Tarjeta de crédito", count: 1, image: require("../../assets/logos_tarjeta.png") },
-    { name: "Paypal", count: 0, image: require("../../assets/logos_paypal.png") },
-    { name: "Google Pay", count: 0, image: require("../../assets/logos_google-icon.png") },
+    { name: "Tarjeta de crédito", count: 1, image: require("../../assets/logos_tarjeta.png"), boton: 1 },
+    { name: "Paypal", count: 0, image: require("../../assets/logos_paypal.png"), boton: 2 },
+    { name: "Google Pay", count: 0, image: require("../../assets/logos_google-icon.png"), boton: 3 },
   ]);
+
+  const [selectedButton, setSelectedButton] = useState(1);
+
+  const handleButtonPress = (button) => {
+    setSelectedButton(button);
+  };
 
   return (
     <ImageBackground
       source={require("../../assets/bg.png")}
       style={styles.backgroundImage}
     >
-      <View style={{ margin: 20 }}>
+      <View style={{ margin: 20, alignItems: "center" }}>
         <Image
           style={styles.imagecenter}
           source={require("../../assets/logoBalu.png")}
@@ -38,9 +44,15 @@ const Carrito2 = () => {
               <Text style={styles.text}>{item.name}</Text>
             </View>
 
-            <View style={styles.containerBotones}>
-              
-            </View>
+            <TouchableOpacity style={[styles.outsideButton]} onPress={() => handleButtonPress(item.boton)}>
+              <TouchableOpacity
+                style={[
+                  styles.button,
+                  selectedButton === item.boton && styles.selectedButton,
+                ]}
+                onPress={() => handleButtonPress(item.boton)}
+              />
+            </TouchableOpacity>
           </View>
         ))}
 
@@ -71,6 +83,7 @@ const styles = StyleSheet.create({
     height: 80,
   },
   textoCarrito: {
+    alignSelf: "flex-start",
     color: "#fff",
     marginTop: 25,
     marginLeft: 20,
@@ -83,7 +96,6 @@ const styles = StyleSheet.create({
     height: 73,
     width: 335,
     borderRadius: 30,
-    marginLeft: 8,
     marginTop: 15,
     alignItems: "center",
     flexDirection: "row",
@@ -100,6 +112,24 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: "contain",
     marginLeft: 15,
+  },
+  outsideButton: {
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 30,
+    marginRight: 30,
+    width: 36,
+    height: 36,
+    backgroundColor: '#EEB1FF',
+  },
+  button: {
+    borderRadius: 30,
+    width: 26,
+    height: 26,
+    backgroundColor: '#EEB1FF',
+  },
+  selectedButton: {
+    backgroundColor: '#97319E',
   },
 });
 

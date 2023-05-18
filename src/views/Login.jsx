@@ -1,7 +1,7 @@
 import { Text, View, StyleSheet, Image, Button, ImageBackground, TextInput, TouchableOpacity } from "react-native";
 import React, { useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import * as Font from 'expo-font'; 
+import * as Font from 'expo-font';
 
 const styles = StyleSheet.create({
   backgroundImage: {
@@ -11,38 +11,38 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   imagecenter: {
-    marginTop: 150,
+    marginTop: 180,
     alignSelf: "center",
     maxWidth: 184,
     height: 126,
   },
   input1: {
     marginTop: 30,
-    height: 40,
-    margin: 12,
+    height: 38,
+    width: 276,
     borderWidth: 1,
     padding: 10,
     backgroundColor: "#EEB1FF",
     borderRadius: 10,
-    fontSize: 15,
-    fontFamily: 'DMSans-Regular',
+    fontSize: 12,
+    fontFamily: 'BalsamiqSans-Regular',
   },
   input2: {
-    height: 40,
+    height: 38,
+    width: 276,
     margin: 12,
     borderWidth: 1,
     padding: 10,
     backgroundColor: "#EEB1FF",
     borderRadius: 10,
-    fontSize: 15,
-    fontFamily: 'DMSans-Regular',
+    fontSize: 12,
+    fontFamily: 'BalsamiqSans-Regular',
   },
   forgot: {
     color: "#fff",
     fontSize: 16,
     fontFamily: 'DMSans-Regular',
     textDecorationLine: "underline",
-    marginLeft: 72,
     marginTop: 5,
     marginBottom: 15,
   },
@@ -70,10 +70,14 @@ const Login = () => {
 
   const navigation = useNavigation();
 
+  const handleButtonClickHome = () => {
+    navigation.navigate("Registro");
+  };
+
   return (
     <ImageBackground source={require("../../assets/bg.png")} style={styles.backgroundImage}>
 
-      <View style={{ margin: 20 }}>
+      <View style={{ margin: 20, alignItems: "center" }}>
         <Image
           style={styles.imagecenter}
           source={require("../../assets/logoBalu.png")}
@@ -104,7 +108,7 @@ const Login = () => {
         />
       </View>
 
-      <TouchableOpacity onPress={() => navigation.navigate('Registro')}>
+      <TouchableOpacity onPress={handleButtonClickHome}>
           <Text style={styles.registro}>REGISTRARME</Text>
       </TouchableOpacity>
 
