@@ -10,30 +10,25 @@ const styles = StyleSheet.create({
     width: 394,
   },
   imagecenter: {
-    marginTop: 20,
-    alignSelf: "center",
-    width: 116,
-    height: 80,
+    marginTop: 145,
+    width: 185,
+    height: 165,
   },
   textoCarrito: {
+    textAlign: "center",
     color: "#fff",
-    fontWeight: "bold",
     marginTop: 25,
-    marginLeft: 20,
-    fontSize: 23,
-    fontFamily: 'DMSans-Regular',
+    marginBottom: 10,
+    fontSize: 22,
+    fontFamily: "DMSans-Bold",
   },
-  pagoContainer: {
-    color: "#97319E",
-    width: 335,
-    height: 51,
-  },
-  pago: {
+  textoCarrito2: {
+    textAlign: "center",
     color: "#fff",
-    fontWeight: "bold",
-    marginTop: 25,
-    fontSize: 18,
-    fontFamily: 'DMSans-Regular',
+    marginBottom: 5,
+    fontSize: 15,
+    fontFamily: "DMSans-Regular",
+    marginBottom: 210,
   },
 });
   
@@ -42,23 +37,29 @@ const Carrito5 = () => {
 
   const navigation = useNavigation();
 
+  const handleButtonClickNavbar = () => {
+    navigation.navigate("Navbar");
+  };
+
   return (
-    <ImageBackground source={require("../../assets/bg.png")} style={styles.backgroundImage}>
-
-        <View style={{ margin: 20 }}>
-            <Image
+    <View style={{ alignItems: "center", flex: 1, resizeMode: "cover", height: 844, width: 394, backgroundColor: "#4D0053"}}>
+        <Image
             style={styles.imagecenter}
-            source={require("../../assets/logoBalu.png")}
-            />
-            <Text style={styles.textoCarrito}>Tu carrito</Text>
+            source={require("../../assets/ordenRecibida.png")}
+        />
+        <Text style={styles.textoCarrito}>Su orden ha sido{'\n'}recibida correctamente</Text>
+        <Text style={styles.textoCarrito2}>Estamos trabajando en su pedido.{'\n'}Espere 5 minutos hasta que llegue.{'\n'}¡Gracias!</Text>
 
-            
-            
+        <View>
+          <Button
+            title="Volver a la pestaña principal"
+            color="#97319E"
+            style={styles.pagoContainer}
+            onPress={handleButtonClickNavbar}
+          />
         </View>
-
-
-    </ImageBackground>
-    
+            
+    </View>
   );
 };
 

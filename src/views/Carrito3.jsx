@@ -1,6 +1,7 @@
 import { Text, View, StyleSheet, Image, Button, ImageBackground, TextInput, TouchableOpacity} from "react-native";
 import React, { useState } from "react";
 import { StackNavigator, useNavigation } from "@react-navigation/native";
+import { Overlay } from 'react-native-elements';
 
 const Carrito3 = () => {
 
@@ -8,6 +9,13 @@ const Carrito3 = () => {
 
   const handleButtonClickCarrito4 = () => {
     navigation.navigate("Carrito4");
+  };
+
+  const [visible, setVisible] = useState(false);
+  const [direccion, setDireccion] = useState('');
+
+  const toggleOverlay = () => {
+    setVisible(!visible);
   };
 
   return (
@@ -38,14 +46,30 @@ const Carrito3 = () => {
         </View>
 
         <Text 
-          style={styles.forgot}>Agregar una nueva dirección
+          style={styles.forgot}
+          onPress={toggleOverlay}>Agregar una nueva dirección
         </Text>
+
+        <Overlay style={styles.overlay} isVisible={visible} onBackdropPress={toggleOverlay}>
+          <Text style={styles.textoDireccion}>Agregar una nueva dirección</Text>
+          <TextInput
+            placeholder="Nueva dirección..."
+            placeholderTextColor="black"
+            style={styles.input}
+            value={direccion}
+            onChangeText={(texto) => setDireccion(texto)}
+          />
+          <Button
+            title="Guardar cambios"
+            color="#97319E"
+            onPress={toggleOverlay}
+          />
+        </Overlay>
 
         <View>
           <Button
             title="Continuar"
             color="#97319E"
-            style={styles.pagoContainer}
             onPress={handleButtonClickCarrito4}
           />
         </View>
@@ -85,6 +109,32 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
   },
+  overlay: {
+    backgroundColor: "#fff",
+    height: 160,
+    width: 335,
+    marginTop: 15,
+    alignItems: "center",
+  },
+  textoDireccion: {
+    alignSelf: "flex-start",
+    color: "#000",
+    marginBottom: 5,
+    fontSize: 14,
+    fontFamily: "DMSans-Medium",
+  },
+  input: {
+    height: 38,
+    width: 276,
+    borderWidth: 1,
+    padding: 10,
+    backgroundColor: "#EEB1FF",
+    borderColor: "#97319E",
+    marginBottom: 15,
+    borderRadius: 10,
+    fontSize: 12,
+    fontFamily: 'BalsamiqSans-Regular',
+  },
   textContainer: {
     flex: 4,
     marginLeft: 15,
@@ -111,7 +161,6 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     width: 26,
     height: 26,
-    backgroundColor: '#EEB1FF',
     backgroundColor: '#97319E',
   },
   forgot: {
