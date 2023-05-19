@@ -91,18 +91,64 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   count: {
-    fontSize: 24,
+    fontSize: 20,
     fontFamily: "DMSans-Regular",
     marginHorizontal: 20,
     color: "#000",
   },
   buttoncounter: {
-    width: 40,
+    width: 30,
+    height: 30,
+    borderRadius: 20,
+    backgroundColor: "#D9D9D9",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  sabermas: {
+    color: "#97319E",
+    fontSize: 16,
+    fontFamily: "DMSans-Regular",
+    textDecorationLine: "underline",
+    fontStyle: "italic",
+    marginTop: 4,
+    marginBottom: 5,
+  },
+  textoTituloOverlay: {
+    color: "#97319E",
+    fontSize: 20,
+    fontFamily: "DMSans-Bold",
+    marginTop: 10,
+    marginBottom: 5,
+  },
+  textoPriceOverlay: {
+    color: "#000",
+    fontSize: 18,
+    fontFamily: "DMSans-Regular",
+    marginTop: 0,
+    marginBottom: 5,
+  },
+  textoDescripcionOverlay: {
+    color: "#000",
+    fontSize: 16,
+    fontFamily: "DMSans-Regular",
+    marginTop: 0,
+    marginBottom: 0,
+    textAlign: "center",
+  },
+  buttonanadir: {
+    width: 200,
     height: 40,
     borderRadius: 20,
     backgroundColor: "#CB6CE6",
     justifyContent: "center",
     alignItems: "center",
+    marginTop: 0,
+    marginBottom: 0,
+  },
+  buttonTextAnadir: {
+    color: "#fff",
+    fontSize: 16,
+    fontFamily: "DMSans-Bold",
   },
 });
 
@@ -113,10 +159,20 @@ const Home = () => {
     navigation.navigate("SummerBowl");
   };
 
-  const [visible, setVisible] = useState(false);
+  const [visibleSummerBowl, setVisibleSummerBowl] = useState(false);
+  const [visibleSpringBowl, setVisibleSpringBowl] = useState(false);
+  const [visibleNectarBowl, setVisibleNectarBowl] = useState(false);
 
   const toggleOverlaySummerBowl = () => {
-    setVisible(!visible);
+    setVisibleSummerBowl(!visibleSummerBowl);
+  };
+
+  const toggleOverlaySpringBowl = () => {
+    setVisibleSpringBowl(!visibleSpringBowl);
+  };
+
+  const toggleOverlayNectarBowl = () => {
+    setVisibleNectarBowl(!visibleNectarBowl);
   };
 
   const handleButtonClickMuscleBowl = () => {
@@ -165,7 +221,7 @@ const Home = () => {
 
             <Overlay
               overlayStyle={styles.overlayy}
-              isVisible={visible}
+              isVisible={visibleSummerBowl}
               onBackdropPress={toggleOverlaySummerBowl}
             >
               <Image
@@ -173,9 +229,9 @@ const Home = () => {
                 source={require("../../assets/SummerBowlOverlay.png")}
               />
 
-              <Text style={styles.textoDireccion}>SummerBowl</Text>
-              <Text style={styles.textoDireccion}>7.99 €</Text>
-              <Text style={styles.textoDireccion}>
+              <Text style={styles.textoTituloOverlay}>Summer Bowl</Text>
+              <Text style={styles.textoPriceOverlay}>7.99 €</Text>
+              <Text style={styles.textoDescripcionOverlay}>
                 Lörem ipsum ösat krode predossade jåna. Sose antropokemi uda
                 inklusive biogen ong.
               </Text>
@@ -194,31 +250,123 @@ const Home = () => {
                   <Text style={styles.buttonText}>+</Text>
                 </TouchableOpacity>
               </View>
-              <Button
-                title="Añadir al Carrito"
-                color="#97319E"
+              <TouchableOpacity
+                style={styles.buttonanadir}
                 onPress={handleButtonClickCarrito}
-              />
-              <Button
-                title="Saber más"
-                color="#97319E"
+              >
+                <Text style={styles.buttonTextAnadir}>Añadir al Carrito</Text>
+              </TouchableOpacity>
+              <Text
+                style={styles.sabermas}
                 onPress={handleButtonClickSummerBowl}
-              />
+              >
+                Saber más
+              </Text>
             </Overlay>
 
             <TouchableOpacity
               style={styles.imageContainer}
-              onPress={handleButtonClickSpringBowl} // Reemplaza "Screen2" con el nombre de la pantalla a la que deseas navegar
+              onPress={toggleOverlaySpringBowl} // Reemplaza "Screen2" con el nombre de la pantalla a la que deseas navegar
             >
               <Image source={require("../../assets/bowl2.png")} />
             </TouchableOpacity>
 
+            <Overlay
+              overlayStyle={styles.overlayy}
+              isVisible={visibleSpringBowl}
+              onBackdropPress={toggleOverlaySpringBowl}
+            >
+              <Image
+                style={styles.imagenoverlay}
+                source={require("../../assets/SpringBowlOverlay.png")}
+              />
+
+              <Text style={styles.textoTituloOverlay}>Spring Bowl</Text>
+              <Text style={styles.textoPriceOverlay}>8.99 €</Text>
+              <Text style={styles.textoDescripcionOverlay}>
+                Lörem ipsum ösat krode predossade jåna. Sose antropokemi uda
+                inklusive biogen ong.
+              </Text>
+              <View style={styles.containerContar}>
+                <TouchableOpacity
+                  style={styles.buttoncounter}
+                  onPress={handleDecrement}
+                >
+                  <Text style={styles.buttonText}>-</Text>
+                </TouchableOpacity>
+                <Text style={styles.count}>{count}</Text>
+                <TouchableOpacity
+                  style={styles.buttoncounter}
+                  onPress={handleIncrement}
+                >
+                  <Text style={styles.buttonText}>+</Text>
+                </TouchableOpacity>
+              </View>
+              <TouchableOpacity
+                style={styles.buttonanadir}
+                onPress={handleButtonClickCarrito}
+              >
+                <Text style={styles.buttonTextAnadir}>Añadir al Carrito</Text>
+              </TouchableOpacity>
+              <Text
+                style={styles.sabermas}
+                onPress={handleButtonClickSpringBowl}
+              >
+                Saber más
+              </Text>
+            </Overlay>
+
             <TouchableOpacity
               style={styles.imageContainer}
-              onPress={handleButtonClickNectarBowl} // Reemplaza "Screen3" con el nombre de la pantalla a la que deseas navegar
+              onPress={toggleOverlayNectarBowl} // Reemplaza "Screen3" con el nombre de la pantalla a la que deseas navegar
             >
               <Image source={require("../../assets/bowl3.png")} />
             </TouchableOpacity>
+
+            <Overlay
+              overlayStyle={styles.overlayy}
+              isVisible={visibleNectarBowl}
+              onBackdropPress={toggleOverlayNectarBowl}
+            >
+              <Image
+                style={styles.imagenoverlay}
+                source={require("../../assets/NectarBowlOverlay.png")}
+              />
+
+              <Text style={styles.textoTituloOverlay}>Nectar Bowl</Text>
+              <Text style={styles.textoPriceOverlay}>8.99 €</Text>
+              <Text style={styles.textoDescripcionOverlay}>
+                Lörem ipsum ösat krode predossade jåna. Sose antropokemi uda
+                inklusive biogen ong.
+              </Text>
+              <View style={styles.containerContar}>
+                <TouchableOpacity
+                  style={styles.buttoncounter}
+                  onPress={handleDecrement}
+                >
+                  <Text style={styles.buttonText}>-</Text>
+                </TouchableOpacity>
+                <Text style={styles.count}>{count}</Text>
+                <TouchableOpacity
+                  style={styles.buttoncounter}
+                  onPress={handleIncrement}
+                >
+                  <Text style={styles.buttonText}>+</Text>
+                </TouchableOpacity>
+              </View>
+              <TouchableOpacity
+                style={styles.buttonanadir}
+                onPress={handleButtonClickCarrito}
+              >
+                <Text style={styles.buttonTextAnadir}>Añadir al Carrito</Text>
+              </TouchableOpacity>
+              <Text
+                style={styles.sabermas}
+                onPress={handleButtonClickNectarBowl}
+              >
+                Saber más
+              </Text>
+            </Overlay>
           </View>
           <Text style={styles.textPrincipal}>TODA LA CARTA</Text>
           <View>
