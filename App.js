@@ -6,6 +6,7 @@ import * as Font from "expo-font";
 import Login from "./src/views/Login";
 import Navbar from "./src/components/Navbar";
 import Registro from "./src/views/Registro";
+import RecordarPassword from "./src/views/RecordarPassword";
 
 import SummerBowl from "./src/views/SummerBowl";
 import MuscleBowl from "./src/views/MuscleBowl";
@@ -61,6 +62,11 @@ export default function App() {
           name="Registro"
           options={{ headerShown: false }}
           component={Registro}
+        />
+        <Stack.Screen
+          name="RecordarPassword"
+          options={{ headerShown: false }}
+          component={RecordarPassword}
         />
         <Stack.Screen
           name="SummerBowl"

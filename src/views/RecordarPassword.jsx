@@ -27,18 +27,9 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontFamily: 'BalsamiqSans-Regular',
   },
-  forgot: {
-    color: "#fff",
-    fontWeight: "bold",
-    fontSize: 16,
-    textDecorationLine: "underline",
-    marginLeft: 72,
-    marginTop: 5,
-    fontFamily: 'DMSans-Regular',
-  },
   addButton: {
-    width: 178,
-    height: 42,
+    width: 192,
+    height: 49,
     borderRadius: 20,
     backgroundColor: "#97319E",
     justifyContent: "center",
@@ -55,11 +46,7 @@ const styles = StyleSheet.create({
   
 const Registro = () => {
 
-  const [nombre, setUsuario] = useState('');
-  const [correo, setUsuario2] = useState('');
-  const [telf, setUsuario3] = useState('');
-  const [password, setUsuario4] = useState('');
-  const [repetir, setUsuario5] = useState('');
+  const [correo, setUsuario] = useState('');
 
   const navigation = useNavigation();
 
@@ -76,43 +63,14 @@ const Registro = () => {
           source={require("../../assets/logoBalu.png")}
         />
         <TextInput
-          placeholder="NOMBRE DE USUARIO"
-          placeholderTextColor="black"
-          style={styles.input}
-          value={nombre}
-          onChangeText={(texto1) => setUsuario(texto1)}
-        />
-        <TextInput
           placeholder="CORREO ELECTRÓNICO"
           placeholderTextColor="black"
           style={styles.input}
           value={correo}
-          onChangeText={(texto2) => setUsuario2(texto2)}
+          onChangeText={(texto) => setUsuario(texto)}
         />
-        <TextInput
-          placeholder="NÚMERO DE TELÉFONO"
-          placeholderTextColor="black"
-          style={styles.input}
-          value={telf}
-          onChangeText={(texto3) => setUsuario3(texto3)}
-        />
-        <TextInput
-          placeholder="CONTRASEÑA"
-          placeholderTextColor="black"
-          style={styles.input}
-          value={password}
-          onChangeText={(texto4) => setUsuario4(texto4)}
-        />
-        <TextInput
-          placeholder="REPETIR CONTRASEÑA"
-          placeholderTextColor="black"
-          style={styles.input}
-          value={repetir}
-          onChangeText={(texto5) => setUsuario5(texto5)}
-        />
-
         <TouchableOpacity style={styles.addButton} onPress={handleButtonClickHome}>
-          <Text style={styles.textaddButton}>REGISTRARME</Text>
+          <Text style={styles.textaddButton}>Recordar Contraseña</Text>
         </TouchableOpacity>
       </View>
 

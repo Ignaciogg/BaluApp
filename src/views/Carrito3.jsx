@@ -68,13 +68,9 @@ const Carrito3 = () => {
           />
         </Overlay>
 
-        <View>
-          <Button
-            title="Continuar"
-            color="#97319E"
-            onPress={handleButtonClickCarrito4}
-          />
-        </View>
+        <TouchableOpacity style={styles.addButton} onPress={handleButtonClickCarrito4}>
+          <Text style={styles.textaddButton}>Continuar</Text>
+        </TouchableOpacity>
         
       </View>
     </ImageBackground>
@@ -173,6 +169,21 @@ const styles = StyleSheet.create({
     fontStyle: "italic",
     marginTop: 15,
     marginBottom: 15,
+  },
+  addButton: {
+    width: 335,
+    height: 51,
+    borderRadius: 20,
+    backgroundColor: "#97319E",
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "center",
+    marginTop: 375,
+  },
+  textaddButton: {
+    color: "#fff",
+    fontSize: 15,
+    fontFamily: 'DMSans-Bold',
   },
 });
 

@@ -53,13 +53,20 @@ const styles = StyleSheet.create({
     textDecorationLine: "underline",
     marginLeft: 135,
   },
-  btn: {
-    marginTop: 5,
+  addButton: {
     width: 178,
-    height: 38,
-    fontWeight: "bold",
-    fontFamily: 'DMSans-Regular',
-    borderRadius: 10,
+    height: 42,
+    borderRadius: 20,
+    backgroundColor: "#97319E",
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "center",
+    marginTop: 5,
+  },
+  textaddButton: {
+    color: "#fff",
+    fontSize: 14,
+    fontFamily: 'DMSans-Bold',
   },
 });
   
@@ -71,7 +78,15 @@ const Login = () => {
   const navigation = useNavigation();
 
   const handleButtonClickHome = () => {
+    navigation.navigate("Navbar");
+  };
+
+  const handleButtonClickRegistro = () => {
     navigation.navigate("Registro");
+  };
+
+  const handleButtonClickRecordar = () => {
+    navigation.navigate("RecordarPassword");
   };
 
   return (
@@ -96,19 +111,15 @@ const Login = () => {
           value={password}
           onChangeText={(texto2) => setUsuario2(texto2)}
         />
-        <Text 
-          style={styles.forgot}>¿Ha olvidado su contraseña?
+        <Text style={styles.forgot} onPress={handleButtonClickRecordar}>¿Ha olvidado su contraseña?
         </Text>
 
-        <Button
-          title="Acceder"
-          color="#97319E"
-          style={styles.btn}
-          onPress={() => navigation.navigate('Navbar')}
-        />
+        <TouchableOpacity style={styles.addButton} onPress={handleButtonClickHome}>
+          <Text style={styles.textaddButton}>ACCEDER</Text>
+        </TouchableOpacity>
       </View>
 
-      <TouchableOpacity onPress={handleButtonClickHome}>
+      <TouchableOpacity onPress={handleButtonClickRegistro}>
           <Text style={styles.registro}>REGISTRARME</Text>
       </TouchableOpacity>
 

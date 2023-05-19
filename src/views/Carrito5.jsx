@@ -30,6 +30,21 @@ const styles = StyleSheet.create({
     fontFamily: "DMSans-Regular",
     marginBottom: 210,
   },
+  addButton: {
+    width: 335,
+    height: 51,
+    borderRadius: 20,
+    backgroundColor: "#97319E",
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "center",
+    marginTop: 20,
+  },
+  textaddButton: {
+    color: "#fff",
+    fontSize: 15,
+    fontFamily: 'DMSans-Bold',
+  },
 });
   
 const Carrito5 = () => {
@@ -50,14 +65,9 @@ const Carrito5 = () => {
         <Text style={styles.textoCarrito}>Su orden ha sido{'\n'}recibida correctamente</Text>
         <Text style={styles.textoCarrito2}>Estamos trabajando en su pedido.{'\n'}Espere 5 minutos hasta que llegue.{'\n'}¡Gracias!</Text>
 
-        <View>
-          <Button
-            title="Volver a la pestaña principal"
-            color="#97319E"
-            style={styles.pagoContainer}
-            onPress={handleButtonClickNavbar}
-          />
-        </View>
+        <TouchableOpacity style={styles.addButton} onPress={handleButtonClickNavbar}>
+          <Text style={styles.textaddButton}>Volver a la pestaña principal</Text>
+        </TouchableOpacity>
             
     </View>
   );

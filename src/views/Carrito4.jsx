@@ -66,14 +66,9 @@ const Carrito4 = () => {
           </View>
         </View>
 
-        <View>
-          <Button
-            title="Continuar"
-            color="#97319E"
-            style={styles.pagoContainer}
-            onPress={handleButtonClickCarrito5}
-          />
-        </View>
+        <TouchableOpacity style={styles.addButton} onPress={handleButtonClickCarrito5}>
+          <Text style={styles.textaddButton}>Finalizar pedido</Text>
+        </TouchableOpacity>
         
       </View>
     </ImageBackground>
@@ -163,6 +158,21 @@ const styles = StyleSheet.create({
     fontFamily: 'DMSans-Regular',
     marginTop: 10,
     marginLeft: 20,
+  },
+  addButton: {
+    width: 335,
+    height: 51,
+    borderRadius: 20,
+    backgroundColor: "#97319E",
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "center",
+    marginTop: 5,
+  },
+  textaddButton: {
+    color: "#fff",
+    fontSize: 15,
+    fontFamily: 'DMSans-Bold',
   },
 });
 

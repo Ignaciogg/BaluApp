@@ -85,14 +85,9 @@ const Carrito = () => {
           <Text style={styles.textoCarrito}>${calcularTotal()}€</Text>
         </View>
 
-        <View>
-          <Button
-            title="Procesar pago"
-            color="#97319E"
-            style={styles.pagoContainer}
-            onPress={handleButtonClickCarrito2}
-          />
-        </View>
+        <TouchableOpacity style={styles.addButton} onPress={handleButtonClickCarrito2}>
+          <Text style={styles.textaddButton}>Procesar pago</Text>
+        </TouchableOpacity>
       </View>
     </ImageBackground>
   );
@@ -129,17 +124,19 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
   },
-  pagoContainer: {
-    color: "#97319E",
+  addButton: {
     width: 335,
     height: 51,
+    borderRadius: 20,
+    backgroundColor: "#97319E",
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "center",
   },
-  pago: {
+  textaddButton: {
     color: "#fff",
-    fontWeight: "bold",
-    marginTop: 25,
-    fontSize: 18,
-    fontFamily: "DMSans-Regular",
+    fontSize: 15,
+    fontFamily: 'DMSans-Bold',
   },
   containerBotones: {
     flexDirection: "row",
