@@ -1,14 +1,16 @@
 import { Text, View, StyleSheet, Image, Button, ImageBackground, TextInput, TouchableOpacity} from "react-native";
 import React, { useState } from "react";
-import { StackNavigator, useNavigation } from "@react-navigation/native";
+import { StackNavigator, useNavigation, useRoute } from "@react-navigation/native";
 import { Overlay } from 'react-native-elements';
 
 const Carrito3 = () => {
 
   const navigation = useNavigation();
+  const route = useRoute();
+  const { total, items } = route.params;
 
   const handleButtonClickCarrito4 = () => {
-    navigation.navigate("Carrito4");
+    navigation.navigate("Carrito4", { total: total, items: items });
   };
 
   const [visible, setVisible] = useState(false);

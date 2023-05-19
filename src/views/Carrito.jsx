@@ -6,11 +6,11 @@ const Carrito = () => {
   const navigation = useNavigation();
 
   const handleButtonClickCarrito2 = () => {
-    navigation.navigate("Carrito2");
+    navigation.navigate("Carrito2", { total: calcularTotal(), items: items});
   };
 
   const [items, setItems] = useState([
-    { name: "Summer Bowl", price: "8,99€", count: 1, image: require("../../assets/bowl1.png") },
+    { name: "Summer Bowl", price: "7,99€", count: 1, image: require("../../assets/bowl1.png") },
     { name: "Spring Bowl", price: "8,99€", count: 1, image: require("../../assets/bowl2.png") },
     { name: "Bowl Personalizado", price: "11,99€", count: 1, image: require("../../assets/bowl3.png") },
   ]);
@@ -27,6 +27,15 @@ const Carrito = () => {
       updatedItems[index].count -= 1;
       setItems(updatedItems);
     }
+  };
+
+  const calcularTotal = () => {
+    let total = 0;
+    items.forEach((item) => {
+      const precio = parseFloat(item.price.replace(",", ".").replace("€", ""));
+      total += item.count * precio;
+    });
+    return total.toFixed(2);
   };
 
   return (
@@ -73,7 +82,7 @@ const Carrito = () => {
 
         <View style={styles.precioContainer}>
           <Text style={styles.textoCarrito}>Total</Text>
-          <Text style={styles.textoCarrito}>29,97€</Text>
+          <Text style={styles.textoCarrito}>${calcularTotal()}€</Text>
         </View>
 
         <View>
