@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     width: 394,
   },
   imagecenter: {
-    marginTop: 90,
+    marginTop: 190,
     marginBottom: 15,
     alignSelf: "center",
     maxWidth: 184,
