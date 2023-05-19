@@ -123,10 +123,12 @@ const SummerBowl = () => {
                 </Svg>
               </TouchableOpacity>
             </View>
-            <Button
+            <TouchableOpacity
+              style={styles.addButton}
               onPress={handleButtonClickHome}
-              title="Añadir al Carrito"
-            ></Button>
+            >
+              <Text style={styles.textaddButton}>Añadir al Carrito</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </ScrollView>
