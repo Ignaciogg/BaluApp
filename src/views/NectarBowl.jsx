@@ -12,11 +12,16 @@ import {
 } from "react-native";
 import { Svg, Path } from "react-native-svg";
 
-const SummerBowl = () => {
+const MuscleBowl = () => {
   const [count, setCount] = useState(0);
 
   const handleIncrement = () => {
     setCount(count + 1);
+  };
+  const navigation = useNavigation();
+
+  const handleButtonClickHome = () => {
+    navigation.navigate("Home");
   };
 
   const handleDecrement = () => {
@@ -24,13 +29,6 @@ const SummerBowl = () => {
       setCount(count - 1);
     }
   };
-
-  const navigation = useNavigation();
-
-  const handleButtonClickHome = () => {
-    navigation.navigate("Home");
-  };
-
   return (
     <ImageBackground
       source={require("../../assets/bg.png")}
@@ -44,10 +42,10 @@ const SummerBowl = () => {
           />
           <Image
             style={styles.centerImage}
-            source={require("../../assets/SummerBowlExpanded.png")}
+            source={require("../../assets/NectarBowlExpanded.png")}
           />
-          <Text style={styles.textCenter}>Summer Bowl</Text>
-          <Text style={styles.price}>7,99€</Text>
+          <Text style={styles.textCenter}>Nectar Bowl</Text>
+          <Text style={styles.price}>8,99€</Text>
           <View style={styles.container}>
             <TouchableOpacity
               style={styles.buttoncounter}
@@ -123,10 +121,12 @@ const SummerBowl = () => {
                 </Svg>
               </TouchableOpacity>
             </View>
-            <Button
+            <TouchableOpacity
+              style={styles.addButton}
               onPress={handleButtonClickHome}
-              title="Añadir al Carrito"
-            ></Button>
+            >
+              <Text style={styles.textaddButton}>Añadir al Carrito</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </ScrollView>
@@ -134,7 +134,7 @@ const SummerBowl = () => {
   );
 };
 
-export default SummerBowl;
+export default MuscleBowl;
 
 const styles = StyleSheet.create({
   backgroundImage: {

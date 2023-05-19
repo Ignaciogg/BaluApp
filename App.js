@@ -6,7 +6,11 @@ import * as Font from "expo-font";
 import Login from "./src/views/Login";
 import Navbar from "./src/components/Navbar";
 import Registro from "./src/views/Registro";
+
 import SummerBowl from "./src/views/SummerBowl";
+import MuscleBowl from "./src/views/MuscleBowl";
+import NectarBowl from "./src/views/NectarBowl";
+import SpringBowl from "./src/views/SpringBowl";
 
 import Carrito from "./src/views/Carrito";
 import Carrito2 from "./src/views/Carrito2";
@@ -62,6 +66,21 @@ export default function App() {
           name="SummerBowl"
           options={{ headerShown: false }}
           component={SummerBowl}
+        />
+        <Stack.Screen
+          name="MuscleBowl"
+          options={{ headerShown: false }}
+          component={MuscleBowl}
+        />
+        <Stack.Screen
+          name="NectarBowl"
+          options={{ headerShown: false }}
+          component={NectarBowl}
+        />
+        <Stack.Screen
+          name="SpringBowl"
+          options={{ headerShown: false }}
+          component={SpringBowl}
         />
         <Stack.Screen
           name="Carrito"
