@@ -1,22 +1,24 @@
 import { Text, View, StyleSheet, Image, Button, ImageBackground, TextInput, TouchableOpacity} from "react-native";
 import React, { useState } from "react";
-import { StackNavigator, useNavigation } from "@react-navigation/native";
+import { StackNavigator, useNavigation, useRoute } from "@react-navigation/native";
 
 const Carrito2 = () => {
 
   const navigation = useNavigation();
+  const route = useRoute();
 
   const handleButtonClickCarrito3 = () => {
-    navigation.navigate("Carrito3");
+    navigation.navigate("Carrito3", { total: total, items: items });
   };
 
-  const [items, setItems] = useState([
+  const [items2, setItems] = useState([
     { name: "Tarjeta de crédito", count: 1, image: require("../../assets/logos_tarjeta.png"), boton: 1 },
     { name: "Paypal", count: 0, image: require("../../assets/logos_paypal.png"), boton: 2 },
     { name: "Google Pay", count: 0, image: require("../../assets/logos_google-icon.png"), boton: 3 },
   ]);
 
   const [selectedButton, setSelectedButton] = useState(1);
+  const { total, items } = route.params;
 
   const handleButtonPress = (button) => {
     setSelectedButton(button);
@@ -34,7 +36,7 @@ const Carrito2 = () => {
         />
         <Text style={styles.textoCarrito}>Pago mediante</Text>
 
-        {items.map((item, index) => (
+        {items2.map((item, index) => (
           <View key={index} style={styles.rectangulo}>
             <Image
               style={styles.image}

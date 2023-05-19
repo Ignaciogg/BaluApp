@@ -38,7 +38,7 @@ const Carrito5 = () => {
   const navigation = useNavigation();
 
   const handleButtonClickNavbar = () => {
-    navigation.navigate("Navbar");
+    navigation.navigate("Home");
   };
 
   return (

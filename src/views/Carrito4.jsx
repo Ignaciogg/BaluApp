@@ -1,10 +1,15 @@
 import { Text, View, StyleSheet, Image, Button, ImageBackground, TextInput, TouchableOpacity} from "react-native";
 import React, { useState } from "react";
-import { StackNavigator, useNavigation } from "@react-navigation/native";
+import { StackNavigator, useNavigation, useRoute } from "@react-navigation/native";
 
 const Carrito4 = () => {
 
   const navigation = useNavigation();
+  const route = useRoute();
+  const { total, items } = route.params;
+
+  const envio = 3.00;
+  const nuevoTotal = parseFloat(total) + envio;
 
   const handleButtonClickCarrito5 = () => {
     navigation.navigate("Carrito5");
@@ -35,66 +40,29 @@ const Carrito4 = () => {
         </Text>
 
         <View style={styles.rectangulo}>
-
-          <View style={styles.fila}>
-            <Text style={styles.textColumn}>1x</Text>
-            <View style={styles.textContainer}>
-              <Text style={styles.text}>Summer Bowl</Text>
+          {items.map((item, index) => (
+            <View style={styles.fila} key={index}>
+              <Text style={styles.textColumn}>{item.count}x</Text>
+              <View style={styles.textContainer}>
+                <Text style={styles.text}>{item.name}</Text>
+              </View>
+              <Text style={styles.textColumn}>{item.price}</Text>
             </View>
-            <Text style={styles.textColumn}>8,99€</Text>
-          </View>
-
-          <View style={styles.fila}>
-            <Text style={styles.textColumn}>1x</Text>
-            <View style={styles.textContainer}>
-              <Text style={styles.text}>Spring Bowl</Text>
-            </View>
-            <Text style={styles.textColumn}>8,99€</Text>
-          </View>
-
-          <View style={styles.fila}>
-            <Text style={styles.textColumn}>1x</Text>
-            <View style={styles.textContainer}>
-              <Text style={styles.text}>Bowl Personalizado</Text>
-            </View>
-            <Text style={styles.textColumn}>11,99€</Text>
-          </View>
-
-          <View style={styles.fila}>
-            <Text style={styles.textColumn}> </Text>
-            <View style={styles.textContainer}>
-              <Text style={styles.text2}>Açai clásico</Text>
-            </View>
-            <Text style={styles.textColumn2}> 0,99€</Text>
-          </View>
-
-          <View style={styles.fila}>
-            <Text style={styles.textColumn}> </Text>
-            <View style={styles.textContainer}>
-              <Text style={styles.text2}>Chocolate blanco</Text>
-            </View>
-            <Text style={styles.textColumn2}> 1,99€</Text>
-          </View>
-
+          ))}
           <View style={styles.linea}></View>
-
           <View style={styles.fila}>
             <Text style={styles.subtotal}>Subtotal</Text>
-            <Text style={styles.textColumn}>29,97€</Text>
+            <Text style={styles.textColumn}>{total}€</Text>
           </View>
-
           <View style={styles.linea}></View>
-
           <View style={styles.fila}>
             <Text style={styles.subtotal}>Envío</Text>
-            <Text style={styles.textColumn}> 3,00€</Text>
+            <Text style={styles.textColumn}> {envio.toFixed(2)}€</Text>
           </View>
-
           <View style={styles.linea}></View>
-
           <View style={styles.fila}>
             <Text style={styles.subtotal}>Total</Text>
-            <Text style={styles.textColumn}>32,97€</Text>
+            <Text style={styles.textColumn}>{nuevoTotal.toFixed(2)}€</Text>
           </View>
         </View>
 
@@ -157,6 +125,7 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: "DMSans-Medium",
     fontSize: 14,
+    color: "black",
   },
   textColumn: {
     flex: 1,
