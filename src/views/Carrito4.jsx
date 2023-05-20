@@ -1,6 +1,7 @@
-import { Text, View, StyleSheet, Image, Button, ImageBackground, TextInput, TouchableOpacity} from "react-native";
-import React, { useState } from "react";
-import { StackNavigator, useNavigation, useRoute } from "@react-navigation/native";
+import { Text, View, StyleSheet, Image, ImageBackground, TouchableOpacity} from "react-native";
+import React from "react";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import MapView from 'react-native-maps';
 
 const Carrito4 = () => {
 
@@ -30,9 +31,14 @@ const Carrito4 = () => {
         <Text 
           style={styles.detalles}>Detalles del envío
         </Text>
-        <Image
+        <MapView
           style={styles.imageMap}
-          source={require("../../assets/map1.png")}
+          initialRegion={{
+            latitude: 40.3619,
+            longitude: -3.8919,
+            latitudeDelta: 0.02,
+            longitudeDelta: 0.02,
+          }}
         />
 
         <Text 
