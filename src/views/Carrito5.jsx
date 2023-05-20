@@ -62,7 +62,7 @@ const Carrito5 = () => {
             style={styles.imagecenter}
             source={require("../../assets/ordenRecibida.png")}
         />
-        <Text style={styles.textoCarrito}>Su orden ha sido{'\n'}recibida correctamente</Text>
+        <Text style={styles.textoCarrito}>Su encargo ha sido{'\n'}recibido correctamente</Text>
         <Text style={styles.textoCarrito2}>Estamos trabajando en su pedido.{'\n'}Espere 5 minutos hasta que llegue.{'\n'}¡Gracias!</Text>
 
         <TouchableOpacity style={styles.addButton} onPress={handleButtonClickNavbar}>

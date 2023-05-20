@@ -82,7 +82,7 @@ const Carrito = () => {
 
         <View style={styles.precioContainer}>
           <Text style={styles.textoCarrito}>Total</Text>
-          <Text style={styles.textoCarrito}>${calcularTotal()}€</Text>
+          <Text style={styles.textoCarrito}>{calcularTotal()}€</Text>
         </View>
 
         <TouchableOpacity style={styles.addButton} onPress={handleButtonClickCarrito2}>
