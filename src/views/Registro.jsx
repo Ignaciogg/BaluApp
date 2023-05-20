@@ -1,6 +1,8 @@
-import { Text, View, StyleSheet, Image, Button, ImageBackground, TextInput, TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet, Image, ImageBackground, TextInput, TouchableOpacity } from "react-native";
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
+
+import usuarios from '../usuarios.json';
 
 const styles = StyleSheet.create({
   backgroundImage: {
@@ -52,24 +54,42 @@ const styles = StyleSheet.create({
     fontFamily: 'DMSans-Bold',
   },
 });
-  
-const Registro = () => {
 
-  const [nombre, setUsuario] = useState('');
-  const [correo, setUsuario2] = useState('');
-  const [telf, setUsuario3] = useState('');
-  const [password, setUsuario4] = useState('');
-  const [repetir, setUsuario5] = useState('');
+const Registro = () => {
+  const [nombre, setNombre] = useState('');
+  const [correo, setCorreo] = useState('');
+  const [telf, setTelf] = useState('');
+  const [password, setPassword] = useState('');
+  const [repetir, setRepetir] = useState('');
 
   const navigation = useNavigation();
 
-  const handleButtonClickHome = () => {
-    navigation.navigate("Navbar");
+  const handleRegistro = () => {
+    const correoExistente = usuarios.usuarios.find((usuario) => usuario.correo === correo);
+    if (correoExistente) {
+      console.log('El correo electrónico ya está en uso');
+      return;
+    }
+
+    if (password !== repetir) {
+      console.log('Las contraseñas no coinciden');
+      return;
+    }
+
+    const nuevoUsuario = {
+      id: usuarios.usuarios.length + 1,
+      nombre: nombre,
+      correo: correo,
+      password: password,
+      telefono: telf
+    };
+
+    usuarios.usuarios.push(nuevoUsuario);
+    navigation.navigate("Navbar", { usuarioEncontrado: nuevoUsuario });
   };
 
   return (
     <ImageBackground source={require("../../assets/bg.png")} style={styles.backgroundImage}>
-
       <View style={{ margin: 20, alignItems: "center" }}>
         <Image
           style={styles.imagecenter}
@@ -80,44 +100,44 @@ const Registro = () => {
           placeholderTextColor="black"
           style={styles.input}
           value={nombre}
-          onChangeText={(texto1) => setUsuario(texto1)}
+          onChangeText={setNombre}
         />
         <TextInput
           placeholder="CORREO ELECTRÓNICO"
           placeholderTextColor="black"
           style={styles.input}
           value={correo}
-          onChangeText={(texto2) => setUsuario2(texto2)}
+          onChangeText={setCorreo}
         />
         <TextInput
           placeholder="NÚMERO DE TELÉFONO"
           placeholderTextColor="black"
           style={styles.input}
           value={telf}
-          onChangeText={(texto3) => setUsuario3(texto3)}
+          onChangeText={setTelf}
         />
         <TextInput
           placeholder="CONTRASEÑA"
           placeholderTextColor="black"
           style={styles.input}
           value={password}
-          onChangeText={(texto4) => setUsuario4(texto4)}
+          onChangeText={setPassword}
+          secureTextEntry={true}
         />
         <TextInput
           placeholder="REPETIR CONTRASEÑA"
           placeholderTextColor="black"
           style={styles.input}
           value={repetir}
-          onChangeText={(texto5) => setUsuario5(texto5)}
+          onChangeText={setRepetir}
+          secureTextEntry={true}
         />
 
-        <TouchableOpacity style={styles.addButton} onPress={handleButtonClickHome}>
+        <TouchableOpacity style={styles.addButton} onPress={handleRegistro}>
           <Text style={styles.textaddButton}>REGISTRARME</Text>
         </TouchableOpacity>
       </View>
-
     </ImageBackground>
-    
   );
 };
 

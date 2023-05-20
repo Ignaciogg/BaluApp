@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import * as Font from 'expo-font';
 
+import usuarios from '../usuarios.json/';
+
 const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
@@ -72,13 +74,21 @@ const styles = StyleSheet.create({
   
 const Login = () => {
 
-  const [nombre, setUsuario] = useState('');
+  const [correo, setUsuario] = useState('');
   const [password, setUsuario2] = useState('');
 
   const navigation = useNavigation();
 
   const handleButtonClickHome = () => {
-    navigation.navigate("Navbar");
+    const usuarioEncontrado = usuarios.usuarios.find(
+      (usuario) => usuario.correo === correo && usuario.password === password
+    );
+  
+    if (usuarioEncontrado) {
+      navigation.navigate("Navbar", { usuarioEncontrado: usuarioEncontrado });
+    } else {
+      console.log("Nombre de usuario o contraseña incorrectos");
+    }
   };
 
   const handleButtonClickRegistro = () => {
@@ -98,10 +108,10 @@ const Login = () => {
           source={require("../../assets/logoBalu.png")}
         />
         <TextInput
-          placeholder="NOMBRE DE USUARIO"
+          placeholder="CORREO ELECTRÓNICO"
           placeholderTextColor="black"
           style={styles.input1}
-          value={nombre}
+          value={correo}
           onChangeText={(texto1) => setUsuario(texto1)}
         />
         <TextInput
@@ -110,6 +120,7 @@ const Login = () => {
           style={styles.input2}
           value={password}
           onChangeText={(texto2) => setUsuario2(texto2)}
+          secureTextEntry={true}
         />
         <Text style={styles.forgot} onPress={handleButtonClickRecordar}>¿Ha olvidado su contraseña?
         </Text>

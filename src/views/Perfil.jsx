@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, View, StyleSheet, Image, Button, ImageBackground } from "react-native";
+import { useRoute } from "@react-navigation/native";
 
 const styles = StyleSheet.create({
   backgroundImage: {
@@ -18,6 +19,10 @@ const styles = StyleSheet.create({
 });
 
 const Perfil = () => {
+
+  const route = useRoute();
+  const { usuarioEncontrado } = route.params;
+
   return (
     <ImageBackground source={require("../../assets/bg.png")} style={styles.backgroundImage}>
 
@@ -25,7 +30,7 @@ const Perfil = () => {
 
       <Text>PERFIL</Text>
 
-      <Text style={styles.textoCentrado}>Álvaro Farreny Boixader</Text>
+      <Text style={styles.textoCentrado}>{usuarioEncontrado.nombre} </Text>
 
       <Text style={styles.textoCentrado}>Mi cuenta</Text>
       <Text style={styles.textoCentrado}>Dirección</Text>

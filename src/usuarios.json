@@ -1,0 +1,25 @@
+{
+    "usuarios": [
+      {
+        "id": 1,
+        "nombre": "Alvaro Farreny Boixader",
+        "correo": "alvaro@email.com",
+        "password": "123",
+        "telefono": 656551234
+      },
+      {
+        "id": 2,
+        "nombre": "Ignacio Gil Garzón",
+        "correo": "ignacio@email.com",
+        "password": "123",
+        "telefono": 656551234
+      },
+      {
+        "id": 3,
+        "nombre": "Crishina Ruix Teixeira",
+        "correo": "crishina@email.com",
+        "password": "123",
+        "telefono": 656551234
+      }
+    ]
+  }

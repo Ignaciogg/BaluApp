@@ -50,8 +50,8 @@ const Registro = () => {
 
   const navigation = useNavigation();
 
-  const handleButtonClickHome = () => {
-    navigation.navigate("Navbar");
+  const handleButtonClickLogin = () => {
+    navigation.navigate("Login");
   };
 
   return (
@@ -69,7 +69,7 @@ const Registro = () => {
           value={correo}
           onChangeText={(texto) => setUsuario(texto)}
         />
-        <TouchableOpacity style={styles.addButton} onPress={handleButtonClickHome}>
+        <TouchableOpacity style={styles.addButton} onPress={handleButtonClickLogin}>
           <Text style={styles.textaddButton}>Recordar Contraseña</Text>
         </TouchableOpacity>
       </View>
