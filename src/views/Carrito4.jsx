@@ -1,7 +1,7 @@
 import { Text, View, StyleSheet, Image, ImageBackground, TouchableOpacity} from "react-native";
 import React from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import MapView from 'react-native-maps';
+import MapView, { Marker, Polyline } from 'react-native-maps';
 
 const Carrito4 = () => {
 
@@ -16,6 +16,30 @@ const Carrito4 = () => {
     navigation.navigate("Carrito5");
   };
 
+  const markers = [
+    {
+      title: 'Tu ubicación',
+      description: 'Calle Tajo, 28008 Villaviciosa de Odón',
+      coordinate: {
+        latitude: 40.3709550139036,
+        longitude: -3.9187452760461396,
+      },
+    },
+    {
+      title: 'Balú',
+      description: 'Av. Infante Don Luis, 3, 28660 Boadilla del Monte',
+      coordinate: {
+        latitude: 40.409274231926084,
+        longitude: -3.8945728730929705,
+      },
+    },
+  ];
+
+  const polylineCoordinates = [
+    markers[0].coordinate,
+    markers[1].coordinate,
+  ];
+
   return (
     <ImageBackground
       source={require("../../assets/bg.png")}
@@ -28,22 +52,29 @@ const Carrito4 = () => {
         />
         <Text style={styles.textoCarrito}>Resumen de tu pedido</Text>
 
-        <Text 
-          style={styles.detalles}>Detalles del envío
-        </Text>
         <MapView
           style={styles.imageMap}
           initialRegion={{
-            latitude: 40.3619,
-            longitude: -3.8919,
-            latitudeDelta: 0.02,
-            longitudeDelta: 0.02,
-          }}
-        />
+            latitude: 40.393281711326885,
+            longitude: -3.913540732302478,
+            latitudeDelta: 0.06,
+            longitudeDelta: 0.06,
+          }}>
+          {markers.map((marker, index) => (
+            <Marker
+              key={index}
+              coordinate={marker.coordinate}
+              title={marker.title}
+              description={marker.description}
+            />
+           ))}
 
-        <Text 
-          style={styles.detalles}>Detalles del pedido
-        </Text>
+          <Polyline
+            coordinates={polylineCoordinates}
+            strokeWidth={4}
+            strokeColor="red"
+          />
+        </MapView>
 
         <View style={styles.rectangulo}>
           {items.map((item, index) => (
@@ -94,7 +125,7 @@ const styles = StyleSheet.create({
     height: 80,
   },
   imageMap: {
-    height: 153,
+    height: 200,
     width: 331,
     marginVertical: 10,
   },

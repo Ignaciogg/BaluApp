@@ -20,6 +20,13 @@
         "correo": "crishina@email.com",
         "password": "123",
         "telefono": 656551234
+      },
+      {
+        "id": 4,
+        "nombre": "Prueba",
+        "correo": "prueba",
+        "password": "123",
+        "telefono": 656551234
       }
     ]
   }
