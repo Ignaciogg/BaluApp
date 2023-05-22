@@ -174,6 +174,9 @@ const Home = () => {
   const toggleOverlayNectarBowl = () => {
     setVisibleNectarBowl(!visibleNectarBowl);
   };
+  const handleButtonClickPersBowl = () => {
+    navigation.navigate("PersBowl");
+  };
 
   const handleButtonClickMuscleBowl = () => {
     navigation.navigate("MuscleBowl");
@@ -414,7 +417,7 @@ const Home = () => {
                   title="Añadir"
                   color="#CB6CE6"
                   containerStyle={styles.btn}
-                  onPress={() => {}}
+                  onPress={handleButtonClickPersBowl}
                 />
               </View>
             </View>

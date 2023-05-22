@@ -18,6 +18,7 @@ import Carrito2 from "./src/views/Carrito2";
 import Carrito3 from "./src/views/Carrito3";
 import Carrito4 from "./src/views/Carrito4";
 import Carrito5 from "./src/views/Carrito5";
+import PersBowl from "./src/views/PersBowl";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -87,6 +88,11 @@ export default function App() {
           name="SpringBowl"
           options={{ headerShown: false }}
           component={SpringBowl}
+        />
+        <Stack.Screen
+          name="PersBowl"
+          options={{ headerShown: false }}
+          component={PersBowl}
         />
         <Stack.Screen
           name="Carrito"
