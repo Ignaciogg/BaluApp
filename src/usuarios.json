@@ -3,9 +3,11 @@
       {
         "id": 1,
         "nombre": "Alvaro Farreny Boixader",
-        "correo": "alvaro@email.com",
-        "password": "123",
-        "telefono": 656551234
+        "correo": "a",
+        "password": "a",
+        "telefono": "(+34) 656 55 12 34",
+        "direccion": "local 1",
+        "foto": "AlvaroFarreny.png"
       },
       {
         "id": 2,

@@ -20,6 +20,11 @@ import Carrito4 from "./src/views/Carrito4";
 import Carrito5 from "./src/views/Carrito5";
 import PersBowl from "./src/views/PersBowl";
 
+
+import Cuenta from "./src/views/Cuenta";
+import Direccion from "./src/views/Direccion";
+import Historial from "./src/views/Historial";
+
 export default function App() {
   const Stack = createStackNavigator();
 
@@ -118,6 +123,21 @@ export default function App() {
           name="Carrito5"
           options={{ headerShown: false }}
           component={Carrito5}
+        />
+        <Stack.Screen
+          name="Cuenta"
+          options={{ headerShown: false }}
+          component={Cuenta}
+        />
+        <Stack.Screen
+          name="Direccion"
+          options={{ headerShown: false }}
+          component={Direccion}
+        />
+        <Stack.Screen
+          name="Historial"
+          options={{ headerShown: false }}
+          component={Historial}
         />
       </Stack.Navigator>
     </NavigationContainer>
