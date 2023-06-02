@@ -20,7 +20,6 @@ import Carrito4 from "./src/views/Carrito4";
 import Carrito5 from "./src/views/Carrito5";
 import PersBowl from "./src/views/PersBowl";
 
-
 import Cuenta from "./src/views/Cuenta";
 import Direccion from "./src/views/Direccion";
 import Historial from "./src/views/Historial";

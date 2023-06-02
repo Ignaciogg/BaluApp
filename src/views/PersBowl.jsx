@@ -9,10 +9,16 @@ import {
   ImageBackground,
   TouchableOpacity,
   ScrollView,
+  FlatList,
 } from "react-native";
 import { Svg, Path } from "react-native-svg";
+import { Ionicons } from "@expo/vector-icons";
 
 const PersBowl = () => {
+  const data_base = ["Clásico", "Orgánico"];
+  const data_frutas = ["Fresa", "Plátano", "Piña", "Mango", "Arándanos"];
+  const data_toppings = ["Coco", "Granola", "Chía", "Cacao", "Canela"];
+  const data_salsa = ["Miel", "Chocolate", "Caramelo", "Fresa", "Mango"];
   const [count, setCount] = useState(0);
 
   const handleIncrement = () => {
@@ -29,6 +35,45 @@ const PersBowl = () => {
 
   const handleButtonClickHome = () => {
     navigation.navigate("Home");
+  };
+
+  const [selectedIngredients, setSelectedIngredients] = useState([]);
+  const toggleItem = (ingredient) => {
+    const isSelected = selectedIngredients.includes(ingredient);
+
+    if (isSelected) {
+      setSelectedIngredients(
+        selectedIngredients.filter((item) => item !== ingredient)
+      );
+    } else {
+      setSelectedIngredients([...selectedIngredients, ingredient]);
+    }
+  };
+
+  const renderItem = ({ item }) => {
+    const isSelected = selectedIngredients.includes(item);
+    return (
+      <TouchableOpacity onPress={() => toggleItem(item)}>
+        <View
+          style={[
+            styles.itemContainer,
+            isSelected && styles.selectedItemContainer,
+          ]}
+        >
+          <View
+            style={[styles.checkbox, isSelected && styles.checkboxSelected]}
+          />
+          <Text
+            style={[
+              styles.ingredientText,
+              isSelected && styles.ingredientTextSelected,
+            ]}
+          >
+            {item}
+          </Text>
+        </View>
+      </TouchableOpacity>
+    );
   };
 
   return (
@@ -62,9 +107,44 @@ const PersBowl = () => {
               </TouchableOpacity>
             </View>
             <View style={styles.containerIngredients}>
-              <Text style={styles.textingredients}>Ingredientes2</Text>
+              <Text style={styles.textingredients}>BASE</Text>
+              <FlatList
+                contentContainerStyle={styles.lista}
+                data={data_base}
+                renderItem={renderItem}
+                keyExtractor={(item) => item.toString()}
+              />
             </View>
-
+            <View style={styles.containerIngredients}>
+              <Text style={styles.textingredients}>FRUTAS</Text>
+              <FlatList
+                contentContainerStyle={styles.flatListContainer}
+                numColumns={2}
+                data={data_frutas}
+                renderItem={renderItem}
+                keyExtractor={(item) => item.toString()}
+              />
+            </View>
+            <View style={styles.containerIngredients}>
+              <Text style={styles.textingredients}>TOPPINGS</Text>
+              <FlatList
+                contentContainerStyle={styles.flatListContainer}
+                numColumns={2}
+                data={data_toppings}
+                renderItem={renderItem}
+                keyExtractor={(item) => item.toString()}
+              />
+            </View>
+            <View style={styles.containerIngredients}>
+              <Text style={styles.textingredients}>SALSA</Text>
+              <FlatList
+                contentContainerStyle={styles.flatListContainer}
+                numColumns={2}
+                data={data_salsa}
+                renderItem={renderItem}
+                keyExtractor={(item) => item.toString()}
+              />
+            </View>
             <TouchableOpacity
               style={styles.addButton}
               onPress={handleButtonClickHome}
@@ -139,7 +219,7 @@ const styles = StyleSheet.create({
   },
   containerIngredients: {
     flexDirection: "column",
-    marginLeft: 30,
+    marginLeft: 10,
     marginTop: 10,
     marginRight: 30,
   },
@@ -148,6 +228,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     fontFamily: "DMSans-Regular",
+    marginBottom: 5,
   },
   containerSvg: {
     color: "#fff",
@@ -185,5 +266,40 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 20,
     fontFamily: "DMSans-Regular",
+  },
+  checkbox: {
+    width: 15,
+    height: 15,
+    borderRadius: 12,
+    borderWidth: 2,
+    borderColor: "#fff",
+    marginRight: 10,
+  },
+  checkboxSelected: {
+    backgroundColor: "#CB6CE6",
+    borderColor: "#CB6CE6",
+  },
+  ingredientText: {
+    color: "#fff",
+    fontSize: 16,
+    fontFamily: "DMSans-Regular",
+  },
+  ingredientTextSelected: {
+    color: "#CB6CE6",
+  },
+  lista: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  flatListContainer: {
+    marginTop: 10,
+    flexDirection: "column",
+  },
+  itemContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingRight: 40,
+    marginBottom: 5,
   },
 });
