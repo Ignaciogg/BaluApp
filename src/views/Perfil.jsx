@@ -183,7 +183,7 @@ const Perfil = () => {
               }}
             >
               <MaterialCommunityIcons
-                name="account"
+                name="map-marker"
                 color="#000"
                 size={25}
                 style={[styles.icon]}
@@ -209,7 +209,7 @@ const Perfil = () => {
               }}
             >
               <MaterialCommunityIcons
-                name="account"
+                name="clipboard-text-clock"
                 color="#000"
                 size={25}
                 style={[styles.icon]}
