@@ -7,28 +7,34 @@
         "password": "a",
         "telefono": "(+34) 656 55 12 34",
         "direccion": "local 1",
-        "foto": "AlvaroFarreny.png"
+        "foto": "../../assets/AlvaroFarreny.png"
       },
       {
         "id": 2,
         "nombre": "Ignacio Gil Garzón",
         "correo": "ignacio@email.com",
         "password": "123",
-        "telefono": 656551234
+        "telefono": "(+34) 656 55 12 34",
+        "direccion": "local 2",
+        "foto": "../../assets/IgnacioGil.png"
       },
       {
         "id": 3,
         "nombre": "Crishina Ruix Teixeira",
         "correo": "crishina@email.com",
         "password": "123",
-        "telefono": 656551234
+        "telefono": "(+34) 656 55 12 34",
+        "direccion": "local 1",
+        "foto": "../../assets/AlvaroFarreny.png"
       },
       {
         "id": 4,
         "nombre": "Prueba",
         "correo": "prueba",
         "password": "123",
-        "telefono": 656551234
+        "telefono": "(+34) 656 55 12 34",
+        "direccion": "local 1",
+        "foto": "../../assets/AlvaroFarreny.png"
       }
     ]
   }

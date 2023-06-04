@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useRoute, useNavigation } from "@react-navigation/native";
+import MapView, { Marker } from 'react-native-maps';
 
 const styles = StyleSheet.create({
   backgroundImage: {
@@ -43,6 +44,13 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     fontWeight: "900",
   },
+  imageMap: {
+    height: 470,
+    width: 348,
+  },
+  border: {
+    borderRadius: 8,
+  }
 });
 const Direccion = () => {
   const route = useRoute();
@@ -80,7 +88,27 @@ const Direccion = () => {
           value={usuarioEncontrado.direccion}
           style={styles.textInput}
         />
-        <Image style={{ height: '65%', justifyContent: 'center', alignItems: 'center', paddingBottom: 50, aspectRatio: 0.71}} source={require('../../assets/mapa.png')}></Image>
+
+        <View style={styles.border}>
+          <MapView
+            style={styles.imageMap}
+            initialRegion={{
+              latitude: 40.409274231926084,
+              longitude: -3.8945728730929705,
+              latitudeDelta: 0.01,
+              longitudeDelta: 0.01,
+            }}>
+            <Marker
+                coordinate={{
+                  latitude: 40.409274231926084,
+                  longitude: -3.8945728730929705,
+                }}
+                title={"Dirección"}
+                description={'Av. Infante Don Luis, 3, 28660 Boadilla del Monte'}
+            />
+          </MapView>
+        </View>
+        
       </View>
     </ImageBackground>
   );
