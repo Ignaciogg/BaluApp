@@ -6,8 +6,7 @@ móvil en react-native para poder hacer pedidos a través de dicha app de una fo
 Demo completa de Balú App:
 
 
-https://github.com/Ignaciogg/BaluApp/assets/72942755/71870f14-ff2f-494f-8080-1f739d9bc850
-
+https://github.com/Ignaciogg/BaluApp/assets/72942755/4362e04e-ec09-4f5c-8d36-8f395602f627
 
 
 Desarrollado por tres estudiantes de la Universidad Europea de Madrid:
